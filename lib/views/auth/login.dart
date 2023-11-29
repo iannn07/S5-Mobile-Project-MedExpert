@@ -17,7 +17,11 @@ class LoginPage extends StatelessWidget {
               gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
-                  colors: [Color(0xFF1564c0), Color(0xFFfaf9f9)])),
+                  colors: [
+                Color(0xFF1564c0),
+                Color.fromARGB(255, 62, 120, 188),
+                Color(0xFFfaf9f9)
+              ])),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -39,27 +43,26 @@ class LoginPage extends StatelessWidget {
                     ),
                     Text(
                       "How are you?",
-                      style: primaryTextStyle.copyWith(
-                          fontSize: 24, fontWeight: bold),
+                      style: primaryTextStyle.copyWith(fontSize: 24),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 75,
               ),
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
                       color: Color(0xFFfaf9f9),
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(60),
-                          topRight: Radius.circular(60))),
+                          topLeft: Radius.circular(40),
+                          topRight: Radius.circular(40))),
                   child: Padding(
-                    padding: EdgeInsets.all(30),
+                    padding: EdgeInsets.all(20),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: 60),
+                        SizedBox(height: 40),
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFfaf9f9),
@@ -68,7 +71,7 @@ class LoginPage extends StatelessWidget {
                                 BoxShadow(
                                     color: Color.fromARGB(225, 21, 100, 192),
                                     blurRadius: 20,
-                                    offset: Offset(0, 10)),
+                                    offset: Offset(0, 5)),
                               ]),
                           child: Column(
                             children: <Widget>[
@@ -87,11 +90,8 @@ class LoginPage extends StatelessWidget {
                               ),
                               Container(
                                 padding: EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                    border: Border(
-                                        bottom: BorderSide(
-                                            color: Color(0xFF1564c0)))),
                                 child: TextField(
+                                    obscureText: true,
                                     decoration: InputDecoration(
                                         hintText: "Password",
                                         hintStyle:
@@ -102,20 +102,47 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 20,
                         ),
                         CupertinoButton(
-                            child: const Text("Already have an account?"),
+                            child: const Text("Don't have an account? Sign Up"),
                             onPressed: () => context.push('/signup')),
                         SizedBox(
-                          height: 40,
+                          height: 20,
+                        ),
+                        Container(
+                          height: 50,
+                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF1564c0),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 100)),
+                              child: const Text(
+                                "LOGIN",
+                                style: TextStyle(
+                                    fontSize: 24, color: Color(0xFFfaf9f9)),
+                              ),
+                              onPressed: () => context.push("/")),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 80),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Image(
+                                image: AssetImage(
+                                    "lib/img/Login Hospital Vector.png"),
+                                alignment: Alignment.center,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
-              Image(image: AssetImage("lib/img/Wallpaper MedExpert.png"))
             ],
           ),
         ));

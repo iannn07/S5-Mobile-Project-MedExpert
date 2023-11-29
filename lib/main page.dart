@@ -35,7 +35,7 @@ class MainPage extends StatelessWidget {
                 style: primaryTextStyle.copyWith(fontSize: 24),
               ),
               SizedBox(
-                height: 100,
+                height: 75,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
