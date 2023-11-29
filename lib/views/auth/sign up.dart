@@ -8,13 +8,6 @@ class SignUp extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           new Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("lib/img/Wallpaper MedExpert v2.png"),
-                  alignment: Alignment.bottomLeft),
-            ),
-          ),
-          new Container(
             margin: const EdgeInsets.all(16.0),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -24,15 +17,14 @@ class SignUp extends StatelessWidget {
                     height: 40,
                   ),
                   Text(
-                    "Hi Doc!",
+                    "Register",
                     style: primaryTextStyle.copyWith(
                         fontSize: 40, fontWeight: bold),
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "Starts your journey being a doctor with us",
-                    style: primaryTextStyle.copyWith(
-                        fontSize: 24, fontWeight: bold),
+                    "Are you ready to be a doctor?",
+                    style: primaryTextStyle.copyWith(fontSize: 24),
                   ),
                   Align(
                     alignment: Alignment.center,
