@@ -40,20 +40,42 @@ class MainPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () => context.push('/login'),
-                    child: Text('LOGIN'),
-                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                          backgroundColor: Color(0xFF1564c0)),
+                      onPressed: () => context.push('/login'),
+                      child: Text(
+                        'LOGIN',
+                        style:
+                            TextStyle(fontSize: 16, color: Color(0xFFfaf9f9)),
+                      ),
+                    ),
+                  )
                 ],
               ),
-              SizedBox(width: 10),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () => context.push('/signup'),
-                    child: Text('SIGN UP'),
-                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                          backgroundColor: Color(0xFFfaf9f9)),
+                      onPressed: () => context.push('/signup'),
+                      child: Text(
+                        'SIGN UP',
+                        style:
+                            TextStyle(fontSize: 16, color: Color(0xFF1564c0)),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ]),
