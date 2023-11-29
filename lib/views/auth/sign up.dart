@@ -114,14 +114,7 @@ class SignUp extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
-                        ),
-                        CupertinoButton(
-                            child:
-                                const Text("Already have an account? Sign In"),
-                            onPressed: () => context.push('/login')),
-                        SizedBox(
-                          height: 20,
+                          height: 40,
                         ),
                         Container(
                           height: 50,
@@ -138,6 +131,13 @@ class SignUp extends StatelessWidget {
                               ),
                               onPressed: () => context.push("/")),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        CupertinoButton(
+                            child:
+                                const Text("Already have an account? Sign In"),
+                            onPressed: () => context.push('/login')),
                       ],
                     ),
                   ),
