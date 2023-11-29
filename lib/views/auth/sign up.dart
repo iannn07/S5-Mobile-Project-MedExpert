@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:med_expert/constants.dart';
 
 class SignUp extends StatelessWidget {
   @override
@@ -35,15 +34,15 @@ class SignUp extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       "Register",
-                      style: primaryTextStyle.copyWith(
-                          fontSize: 40, fontWeight: bold),
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
                       "Are you ready to be a doctor?",
-                      style: primaryTextStyle.copyWith(fontSize: 24),
+                      style: TextStyle(fontSize: 24),
                     ),
                   ],
                 ),

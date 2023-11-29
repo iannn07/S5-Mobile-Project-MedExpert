@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:med_expert/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatelessWidget {
@@ -26,13 +25,12 @@ class MainPage extends StatelessWidget {
               ),
               Text(
                 "Hi Doc!",
-                style:
-                    primaryTextStyle.copyWith(fontSize: 40, fontWeight: bold),
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 15),
               Text(
                 "Starts your journey being a doctor with us",
-                style: primaryTextStyle.copyWith(fontSize: 24),
+                style: TextStyle(fontSize: 24),
               ),
               SizedBox(
                 height: 75,

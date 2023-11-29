@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:med_expert/constants.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -35,15 +34,15 @@ class LoginPage extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       "Welcome Back!",
-                      style: primaryTextStyle.copyWith(
-                          fontSize: 40, fontWeight: bold),
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
                       "How are you?",
-                      style: primaryTextStyle.copyWith(fontSize: 24),
+                      style: TextStyle(fontSize: 24),
                     ),
                   ],
                 ),
@@ -117,7 +116,7 @@ class LoginPage extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF1564c0),
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 100)),
+                                      EdgeInsets.symmetric(horizontal: 80)),
                               child: const Text(
                                 "LOGIN",
                                 style: TextStyle(
