@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/auth/auth_service.dart';
 
 class SignUp extends StatelessWidget {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,34 +84,25 @@ class SignUp extends StatelessWidget {
                                         bottom: BorderSide(
                                             color: Color(0xFF1564c0)))),
                                 child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: "Your Name",
-                                        hintStyle:
-                                            TextStyle(color: Color(0xFF1564c0)),
-                                        border: InputBorder.none)),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                    border: Border(
-                                        bottom: BorderSide(
-                                            color: Color(0xFF1564c0)))),
-                                child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: "Your Email",
-                                        hintStyle:
-                                            TextStyle(color: Color(0xFF1564c0)),
-                                        border: InputBorder.none)),
+                                  decoration: InputDecoration(
+                                      hintText: "Your Email",
+                                      hintStyle:
+                                          TextStyle(color: Color(0xFF1564c0)),
+                                      border: InputBorder.none),
+                                  controller: _emailController,
+                                ),
                               ),
                               Container(
                                 padding: EdgeInsets.all(20),
                                 child: TextField(
-                                    obscureText: true,
-                                    decoration: InputDecoration(
-                                        hintText: "Password",
-                                        hintStyle:
-                                            TextStyle(color: Color(0xFF1564c0)),
-                                        border: InputBorder.none)),
+                                  obscureText: true,
+                                  decoration: InputDecoration(
+                                      hintText: "Password",
+                                      hintStyle:
+                                          TextStyle(color: Color(0xFF1564c0)),
+                                      border: InputBorder.none),
+                                  controller: _passwordController,
+                                ),
                               )
                             ],
                           ),
@@ -129,7 +123,17 @@ class SignUp extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 24, color: Color(0xFFfaf9f9)),
                               ),
-                              onPressed: () => context.push("/")),
+                              onPressed: () async {
+                                final message = await AuthService()
+                                    .registration(
+                                        email: _emailController.text,
+                                        password: _passwordController.text);
+                                if (message!.contains('Success')) {
+                                  context.push('/dashboard');
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(message)));
+                              }),
                         ),
                         SizedBox(
                           height: 20,
@@ -138,6 +142,19 @@ class SignUp extends StatelessWidget {
                             child:
                                 const Text("Already have an account? Sign In"),
                             onPressed: () => context.push('/login')),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 80),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Image(
+                                image: AssetImage(
+                                    "lib/img/Login Hospital Vector.png"),
+                                alignment: Alignment.center,
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/auth/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,11 +84,13 @@ class LoginPage extends StatelessWidget {
                                         bottom: BorderSide(
                                             color: Color(0xFF1564c0)))),
                                 child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: "Your Email",
-                                        hintStyle:
-                                            TextStyle(color: Color(0xFF1564c0)),
-                                        border: InputBorder.none)),
+                                  decoration: InputDecoration(
+                                      hintText: "Your Email",
+                                      hintStyle:
+                                          TextStyle(color: Color(0xFF1564c0)),
+                                      border: InputBorder.none),
+                                  controller: _emailController,
+                                ),
                               ),
                               Container(
                                 padding: EdgeInsets.all(20),
@@ -95,7 +100,8 @@ class LoginPage extends StatelessWidget {
                                         hintText: "Password",
                                         hintStyle:
                                             TextStyle(color: Color(0xFF1564c0)),
-                                        border: InputBorder.none)),
+                                        border: InputBorder.none),
+                                    controller: _passwordController),
                               )
                             ],
                           ),
@@ -116,7 +122,16 @@ class LoginPage extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 24, color: Color(0xFFfaf9f9)),
                               ),
-                              onPressed: () => context.push("/")),
+                              onPressed: () async {
+                                final message = await AuthService().login(
+                                    email: _emailController.text,
+                                    password: _passwordController.text);
+                                if (message!.contains('Success')) {
+                                  context.push('/dashboard');
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(message)));
+                              }),
                         ),
                         SizedBox(
                           height: 20,
