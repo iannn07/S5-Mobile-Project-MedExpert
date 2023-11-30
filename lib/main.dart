@@ -5,10 +5,11 @@ import 'package:med_expert/firebase_options.dart';
 import 'package:med_expert/splash.dart';
 import 'package:med_expert/views/auth/signup.dart';
 import 'package:med_expert/views/auth/login.dart';
+import 'package:med_expert/views/main/homepage/dashboard.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -28,4 +29,5 @@ final GoRouter _router = GoRouter(routes: [
   GoRoute(path: "/", builder: ((context, state) => const MainPage())),
   GoRoute(path: "/login", builder: ((context, state) => LoginPage())),
   GoRoute(path: "/signup", builder: ((context, state) => SignUp())),
+  GoRoute(path: "/dashboard", builder: ((context, state) => Dashboard())),
 ]);
