@@ -1,4 +1,4 @@
-# med_expert
+# MedExpert
 
 A new Flutter project.
 
