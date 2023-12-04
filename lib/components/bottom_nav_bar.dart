@@ -16,25 +16,22 @@ class BottomNavBar extends StatelessWidget {
           textColor: Colors.black,
         ),
 
-        //learning
         GButton(
-          icon: Icons.book,
+          icon: Icons.import_contacts_outlined,
           iconColor: Colors.grey,
-          text: 'Learning',
+          text: 'Materials',
           textColor: Colors.black,
         ),
 
-        //quiz
         GButton(
-          icon: Icons.book,
+          icon: Icons.event,
           iconColor: Colors.grey,
-          text: 'Quiz',
+          text: 'Classes',
           textColor: Colors.black,
         ),
 
-        //profile
         GButton(
-          icon: Icons.book,
+          icon: Icons.account_circle_rounded,
           iconColor: Colors.grey,
           text: 'Profile',
           textColor: Colors.black,

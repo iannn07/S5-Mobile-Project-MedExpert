@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:med_expert/views/auth/auth_service.dart';
 
 class SignUp extends StatelessWidget {
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   @override
@@ -85,6 +86,21 @@ class SignUp extends StatelessWidget {
                                             color: Color(0xFF1564c0)))),
                                 child: TextField(
                                   decoration: InputDecoration(
+                                      hintText: "Your Name",
+                                      hintStyle:
+                                          TextStyle(color: Color(0xFF1564c0)),
+                                      border: InputBorder.none),
+                                  controller: _nameController,
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: Color(0xFF1564c0)))),
+                                child: TextField(
+                                  decoration: InputDecoration(
                                       hintText: "Your Email",
                                       hintStyle:
                                           TextStyle(color: Color(0xFF1564c0)),
@@ -126,6 +142,7 @@ class SignUp extends StatelessWidget {
                               onPressed: () async {
                                 final message = await AuthService()
                                     .registration(
+                                        name: _nameController.text,
                                         email: _emailController.text,
                                         password: _passwordController.text);
                                 if (message!.contains('Success')) {
@@ -139,22 +156,22 @@ class SignUp extends StatelessWidget {
                           height: 20,
                         ),
                         CupertinoButton(
-                            child:
-                                const Text("Already have an account? Sign In"),
-                            onPressed: () => context.push('/login')),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 80),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image(
-                                image: AssetImage(
-                                    "lib/img/Login Hospital Vector.png"),
-                                alignment: Alignment.center,
-                              ),
-                            ],
-                          ),
+                          child: const Text("Already have an account? Sign In"),
+                          onPressed: () => context.push('/login'),
                         ),
+                        // Container(
+                        //   padding: EdgeInsets.symmetric(horizontal: 80),
+                        //   child: Column(
+                        //     crossAxisAlignment: CrossAxisAlignment.center,
+                        //     children: <Widget>[
+                        //       Image(
+                        //         image: AssetImage(
+                        //             "lib/img/Login Hospital Vector.png"),
+                        //         alignment: Alignment.center,
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
