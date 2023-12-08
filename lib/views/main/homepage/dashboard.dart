@@ -10,22 +10,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List catNames = ['Category', 'Materials', 'Classes'];
-
-  List<Color> catColors = [
-    Color(0xFF1564c0),
-    Color(0xFF1564c0),
-    Color(0xFF1564c0),
-  ];
-
-  List<Icon> catIcons = [
-    Icon(Icons.category, color: Colors.white, size: 30),
-    Icon(Icons.event, color: Colors.white, size: 30),
-    Icon(Icons.import_contacts_outlined, color: Colors.white, size: 30),
-  ];
-
-  List imgList = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,41 +72,6 @@ class _DashboardState extends State<Dashboard> {
               padding: EdgeInsets.only(top: 20, left: 15, right: 15),
               child: Column(
                 children: [
-                  GridView.builder(
-                    itemCount: catNames.length,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio: 1.1,
-                    ),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              color: catColors[index],
-                              shape: BoxShape.circle,
-                            ),
-                            child: Center(
-                              child: catIcons[index],
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            catNames[index],
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black.withOpacity(0.7),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -158,7 +107,7 @@ class _DashboardState extends State<Dashboard> {
                             ),
                             onPressed: () {
                               FirebaseAuth.instance.signOut();
-                              context.go('/');
+                              context.go('/login');
                             }),
                       ]),
                 ],

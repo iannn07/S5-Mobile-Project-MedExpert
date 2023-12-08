@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:med_expert/splash.dart';
 import 'package:med_expert/views/auth/login.dart';
 import 'package:med_expert/views/auth/signup.dart';
-import 'package:med_expert/views/main/homepage/dashboard.dart';
 import 'package:med_expert/views/main/homepage/navigation_tab.dart';
 import 'package:med_expert/views/main/homepage/profile.dart';
 
