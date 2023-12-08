@@ -52,6 +52,23 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF1564c0),
+                          padding: EdgeInsets.symmetric(horizontal: 80)),
+                      child: const Text(
+                        "LOGOUT",
+                        style:
+                            TextStyle(fontSize: 24, color: Color(0xFFfaf9f9)),
+                      ),
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                        context.go('/login');
+                      }),
+                ]),
           ],
         ),
       ),
