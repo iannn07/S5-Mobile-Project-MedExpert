@@ -6,6 +6,7 @@ import 'package:med_expert/splash.dart';
 import 'package:med_expert/views/auth/signup.dart';
 import 'package:med_expert/views/auth/login.dart';
 import 'package:med_expert/views/main/homepage/dashboard.dart';
+import 'package:med_expert/views/main/homepage/profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'MedExpert Router',
+      title: 'MedExpert',
       routerConfig: _router,
     );
   }
@@ -30,4 +31,6 @@ final GoRouter _router = GoRouter(routes: [
   GoRoute(path: "/login", builder: ((context, state) => LoginPage())),
   GoRoute(path: "/signup", builder: ((context, state) => SignUp())),
   GoRoute(path: "/dashboard", builder: ((context, state) => Dashboard())),
+  GoRoute(
+      path: "/dashboard/profile", builder: ((context, state) => ProfilePage()))
 ]);

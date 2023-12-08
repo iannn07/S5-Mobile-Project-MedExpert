@@ -34,8 +34,7 @@ class _DashboardState extends State<Dashboard> {
         child: ListView(
           children: <Widget>[
             Container(
-              padding:
-                  EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 15),
+              padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Color(0xFF1564c0),
                 borderRadius: BorderRadius.only(

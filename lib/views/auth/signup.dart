@@ -146,7 +146,7 @@ class SignUp extends StatelessWidget {
                                         email: _emailController.text,
                                         password: _passwordController.text);
                                 if (message!.contains('Success')) {
-                                  context.push('/dashboard');
+                                  context.push('/dashboard/profile');
                                 }
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(content: Text(message)));
