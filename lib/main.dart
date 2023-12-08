@@ -1,12 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:med_expert/firebase_options.dart';
-import 'package:med_expert/splash.dart';
-import 'package:med_expert/views/auth/signup.dart';
-import 'package:med_expert/views/auth/login.dart';
-import 'package:med_expert/views/main/homepage/dashboard.dart';
-import 'package:med_expert/views/main/homepage/profile.dart';
+import 'package:med_expert/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,17 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'MedExpert',
-      routerConfig: _router,
-    );
+        title: 'MedExpert',
+        debugShowCheckedModeBanner: false,
+        routerConfig: RouterController.goRouterProvider);
   }
 }
-
-final GoRouter _router = GoRouter(routes: [
-  GoRoute(path: "/", builder: ((context, state) => const MainPage())),
-  GoRoute(path: "/login", builder: ((context, state) => LoginPage())),
-  GoRoute(path: "/signup", builder: ((context, state) => SignUp())),
-  GoRoute(path: "/dashboard", builder: ((context, state) => Dashboard())),
-  GoRoute(
-      path: "/dashboard/profile", builder: ((context, state) => ProfilePage()))
-]);

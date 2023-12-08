@@ -9,6 +9,9 @@ class ProfilePage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            SizedBox(
+              height: 40,
+            ),
             Container(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
