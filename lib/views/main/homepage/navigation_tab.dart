@@ -13,8 +13,7 @@ class NavigationTab extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.book), label: 'Book'),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.square_stack_3d_up),
-              label: 'Materials'),
+              icon: Icon(CupertinoIcons.square_stack_3d_up), label: 'Courses'),
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.profile_circled), label: 'Profile'),
         ],
