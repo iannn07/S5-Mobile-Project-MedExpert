@@ -1,53 +1,94 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
 
+// ignore: must_be_immutable
 class ProfilePage extends StatelessWidget {
+  var theme1 = Colors.white;
+  var theme2 = const Color(0xff2E324F);
+  var white = Colors.white;
+  var black = Colors.black;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFF1564c0),
+      ),
+      body: SingleChildScrollView(
         child: Column(
-          children: [
-            SizedBox(
-              height: 40,
+          children: <Widget>[
+            _profilePic(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 4.0),
+              child: Text("medExpert",
+                  style: TextStyle(
+                      color: black,
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold)),
             ),
-            Container(
+            const Padding(
+              padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
+              child: Text(
+                "Education Application",
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            _networkingLinks(),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(40.0, 8.0, 40.0, 0.0),
+              child: Divider(
+                color: Color(0xff78909c),
+                height: 50.0,
+              ),
+            ),
+            SizedBox(height: 12),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(
-                            'https://example.com/profile-image.jpg'),
-                      ),
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget> [
+                  Text(
+                    "ABOUT",
+                    style: TextStyle(fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    height: 1.5
                     ),
-                    SizedBox(height: 16),
-                    Text(
-                      FirebaseAuth.instance.currentUser!.displayName!,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Hi, my name is medExpert, and I believe that educating people about how culture and food correlate helps individuals understand more about themselves. I have nine years of experience exploring and discovering the unique recipes made by communities around the world, and I use my knowledge to create custom and memorable events. I believe that bringing together culture, food and people can help individuals connect and bond, and I intend to bring that experience to you. I believes mindfulness in the workplace is key to success—a tenet she lives out through her interests in yoga, meditation, gardening, and painting. Madison is currently working as a freelance marketing director and is always interested in a challenge.",
+                    style: TextStyle(fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                    height: 1.5
                     ),
-                    SizedBox(height: 16),
-                    Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    ),
-                  ]),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 20),
             Container(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () {
                       // Add functionality for editing profile
                     },
-                    child: Text('Edit Profile'),
+                    child: Text('Edit Profile',
+                    style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1564c0),
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -58,11 +99,11 @@ class ProfilePage extends StatelessWidget {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF1564c0),
-                          padding: EdgeInsets.symmetric(horizontal: 80)),
+                          padding: EdgeInsets.symmetric(horizontal: 30)),
                       child: const Text(
                         "LOGOUT",
                         style:
-                            TextStyle(fontSize: 24, color: Color(0xFFfaf9f9)),
+                            TextStyle(fontSize: 15, color: Color(0xFFfaf9f9)),
                       ),
                       onPressed: () {
                         FirebaseAuth.instance.signOut();
@@ -74,4 +115,39 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+
+  Row _networkingLinks() => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _networkIcon("lib/img/twitter.png"),
+          _networkIcon("lib/img/meduium.png"),
+          _networkIcon("lib/img/linkedin.png"),
+        ],
+      );
+
+  Padding _networkIcon(String image) => Padding(
+        padding: const EdgeInsets.fromLTRB(8.0, 15.0, 8.0, 15.0),
+        child: SizedBox(height: 20.0, width: 25.0, child: Image.asset(image)),
+      );
+
+  Container _profilePic() => Container(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(50.0, 30.0, 50.0, 15.0),
+          child: Stack(
+            alignment: const Alignment(0.9, 0.9),
+            children: <Widget>[
+              const CircleAvatar(
+                backgroundImage: AssetImage("lib/img/doctor.jpg"),
+                radius: 60.0,
+              ),
+              Container(
+                height: 30.0,
+                width: 30.0,
+                alignment: Alignment.bottomRight,
+                child: Image.asset("lib/img/verified.jpg"),
+              ),
+            ],
+          ),
+        ),
+      );
 }
