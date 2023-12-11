@@ -10,106 +10,98 @@ class ProfilePage extends StatelessWidget {
   var theme2 = const Color(0xff2E324F);
   var white = Colors.white;
   var black = Colors.black;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFF1564c0),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            _profilePic(),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 4.0),
-              child: Text("medExpert",
-                  style: TextStyle(
-                      color: black,
-                      fontSize: 26.0,
-                      fontWeight: FontWeight.bold)),
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
-              child: Text(
-                "Education Application",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            _networkingLinks(),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(40.0, 8.0, 40.0, 0.0),
-              child: Divider(
-                color: Color(0xff78909c),
-                height: 50.0,
-              ),
-            ),
-            SizedBox(height: 12),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget> [
-                  Text(
-                    "ABOUT",
-                    style: TextStyle(fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    height: 1.5
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "Hi, my name is medExpert, and I believe that educating people about how culture and food correlate helps individuals understand more about themselves. I have nine years of experience exploring and discovering the unique recipes made by communities around the world, and I use my knowledge to create custom and memorable events. I believe that bringing together culture, food and people can help individuals connect and bond, and I intend to bring that experience to you. I believes mindfulness in the workplace is key to success—a tenet she lives out through her interests in yoga, meditation, gardening, and painting. Madison is currently working as a freelance marketing director and is always interested in a challenge.",
-                    style: TextStyle(fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                    height: 1.5
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20),
             Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {
-                      // Add functionality for editing profile
-                    },
-                    child: Text('Edit Profile',
+              padding: EdgeInsets.all(32),
+              child: Column(children: <Widget>[
+                _profilePic(),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 4.0),
+                  child: Text(FirebaseAuth.instance.currentUser!.displayName!,
+                      style: TextStyle(
+                          color: black,
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.bold)),
+                ),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
+                  child: Text(
+                    "Education Application",
                     style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                _networkingLinks(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        // Add functionality for editing profile
+                      },
+                      child: Text(
+                        'Edit Profile',
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF1564c0),
+                        ),
                       ),
                     ),
-                  )
-                ],
-              ),
-            ),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF1564c0),
-                          padding: EdgeInsets.symmetric(horizontal: 30)),
-                      child: const Text(
-                        "LOGOUT",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xFFfaf9f9)),
+                    SizedBox(width: 20),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF1564c0),
+                            padding: EdgeInsets.symmetric(horizontal: 30)),
+                        child: const Text(
+                          "LOGOUT",
+                          style:
+                              TextStyle(fontSize: 15, color: Color(0xFFfaf9f9)),
+                        ),
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                          context.go('/login');
+                        }),
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(0),
+                  child: Divider(
+                    color: Color(0xff78909c),
+                    height: 50.0,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "ABOUT",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            height: 1.5),
                       ),
-                      onPressed: () {
-                        FirebaseAuth.instance.signOut();
-                        context.go('/login');
-                      }),
-                ]),
+                      SizedBox(height: 10),
+                      Text(
+                        "Hi, my name is medExpert, and I believe that educating people about how culture and food correlate helps individuals understand more about themselves. I have nine years of experience exploring and discovering the unique recipes made by communities around the world, and I use my knowledge to create custom and memorable events. I believe that bringing together culture, food and people can help individuals connect and bond, and I intend to bring that experience to you. I believes mindfulness in the workplace is key to success—a tenet she lives out through her interests in yoga, meditation, gardening, and painting. Madison is currently working as a freelance marketing director and is always interested in a challenge.",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ]),
+            ),
           ],
         ),
       ),
