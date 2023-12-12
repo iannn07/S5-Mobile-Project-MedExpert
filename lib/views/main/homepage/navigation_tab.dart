@@ -11,7 +11,8 @@ class NavigationTab extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.book), label: 'Book'),
+              icon: Icon(CupertinoIcons.camera_circle_fill),
+              label: 'AI Drugs Detector'),
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.square_stack_3d_up), label: 'Courses'),
           BottomNavigationBarItem(
