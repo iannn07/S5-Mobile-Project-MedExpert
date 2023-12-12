@@ -46,7 +46,7 @@ class ProfilePage extends StatelessWidget {
                   children: <Widget>[
                     ElevatedButton(
                       onPressed: () {
-                        // Add functionality for editing profile
+                        
                       },
                       child: Text(
                         'Edit Profile',
