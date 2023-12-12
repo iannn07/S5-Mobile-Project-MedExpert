@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68958649060",
+    "project_id": "s5-mobile-medexpert",
+    "storage_bucket": "s5-mobile-medexpert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68958649060:android:117a12bfb1d76a59a60af1",
+        "android_client_info": {
+          "package_name": "com.example.med_expert"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT3-Ffj7G-09gKeKqMYHrUq3AUTwhWfHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
