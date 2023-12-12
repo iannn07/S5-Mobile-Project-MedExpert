@@ -128,8 +128,8 @@ class _DashboardState extends State<Dashboard> {
                                 padding: EdgeInsets.all(10),
                                 child: Image.asset(
                                   "lib/img/${imgList[index]}.png",
-                                  width: 125,
-                                  height: 125,
+                                  width: 110,
+                                  height: 110,
                                 ),
                               ),
                               SizedBox(height: 10),
