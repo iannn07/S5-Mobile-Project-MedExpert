@@ -18,6 +18,7 @@ class NavigationTab extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.profile_circled), label: 'Profile'),
         ],
+        activeColor: Color(0xFF1564c0),
       ),
       tabBuilder: (context, index) {
         switch (index) {

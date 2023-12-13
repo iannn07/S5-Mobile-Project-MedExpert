@@ -100,6 +100,12 @@ class ProfilePage extends StatelessWidget {
                 backgroundImage: AssetImage("lib/img/doctor.jpg"),
                 radius: 80,
               ),
+              Container(
+                height: 40.0,
+                width: 40.0,
+                alignment: Alignment.bottomRight,
+                child: Image.asset("lib/img/edit.png"),
+              ),
             ],
           ),
         ),

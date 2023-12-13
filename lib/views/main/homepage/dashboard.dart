@@ -114,7 +114,7 @@ class _DashboardState extends State<Dashboard> {
                               vertical: 20, horizontal: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xFFF5F3FF),
+                            color: Color.fromARGB(255, 227, 240, 255),
                           ),
                           child: Column(
                             children: [
