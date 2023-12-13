@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -11,10 +11,12 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   List imgList = [
-    'Dentist',
-    'HIV',
-    'Phlebotomy',
-    'Rontgen',
+    'Anatomy',
+    'Pathology',
+    'Surgery',
+    'Drugs',
+    'Radiology',
+    'Heart',
   ];
 
   @override
@@ -83,18 +85,10 @@ class _DashboardState extends State<Dashboard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Discover",
+                        "What you want to learn today?",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        "See All",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF1564c0),
                         ),
                       ),
                     ],
@@ -107,7 +101,7 @@ class _DashboardState extends State<Dashboard> {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio:
-                          (MediaQuery.of(context).size.height - 50 - 25) /
+                          (MediaQuery.of(context).size.height - 30 - 5) /
                               (4 * 240),
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10,
@@ -141,41 +135,12 @@ class _DashboardState extends State<Dashboard> {
                                   color: Colors.black,
                                 ),
                               ),
-                              SizedBox(height: 5),
-                              Text(
-                                "5 videos",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                              ),
                             ],
                           ),
                         ),
                       );
                     },
                   ),
-
-                  // SizedBox(height: 10),
-                  // Column(
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     children: <Widget>[
-                  //       ElevatedButton(
-                  //           style: ElevatedButton.styleFrom(
-                  //               backgroundColor: Color(0xFF1564c0),
-                  //               padding: EdgeInsets.symmetric(horizontal: 80)),
-                  //           child: const Text(
-                  //             "LOGOUT",
-                  //             style: TextStyle(
-                  //                 fontSize: 24, color: Color(0xFFfaf9f9)),
-                  //           ),
-                  //           onPressed: () {
-                  //             FirebaseAuth.instance.signOut();
-                  //             context.go('/login');
-                  //           }),
-                  //     ],
-                  //     ),
                 ],
               ),
             ),

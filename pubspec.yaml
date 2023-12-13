@@ -69,16 +69,18 @@ flutter:
     - lib/img/Wallpaper MedExpert v2.png
     - lib/img/Wallpaper MedExpert.png
     - lib/img/Login Hospital Vector.png
-    - lib/img/Dentist.png
-    - lib/img/HIV.png
-    - lib/img/Phlebotomy.png
-    - lib/img/Rontgen.png
     - lib/img/smile.png
     - lib/img/linkedin.png
     - lib/img/meduium.png
     - lib/img/twitter.png
     - lib/img/verified.jpg
     - lib/img/doctor.jpg
+    - lib/img/Anatomy.png
+    - lib/img/Heart.png
+    - lib/img/Pathology.png
+    - lib/img/Radiology.png
+    - lib/img/Drugs.png
+    - lib/img/Surgery.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
