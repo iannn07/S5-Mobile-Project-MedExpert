@@ -134,11 +134,20 @@ class LoginPage extends StatelessWidget {
                               }),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
-                        CupertinoButton(
-                            child: const Text("Don't have an account? Sign Up"),
-                            onPressed: () => context.push('/signup')),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Don't have an account?"),
+                              CupertinoButton(
+                                  child: const Text(
+                                    "Sign Up",
+                                    style: TextStyle(
+                                        color: CupertinoColors.activeBlue),
+                                  ),
+                                  onPressed: () => context.push('/signup')),
+                            ]),
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 80),
                           child: Column(
