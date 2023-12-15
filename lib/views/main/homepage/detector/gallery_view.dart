@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'utils.dart';
 
@@ -40,22 +41,13 @@ class _GalleryViewState extends State<GalleryView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: widget.onDetectorViewModeChanged,
-                child: Icon(
-                  Platform.isIOS ? Icons.camera_alt_outlined : Icons.camera,
-                ),
-              ),
-            ),
-          ],
-        ),
-        body: _galleryBody());
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text(widget.title),
+        automaticallyImplyLeading: false,
+      ),
+      child: _galleryBody(),
+    );
   }
 
   Widget _galleryBody() {
