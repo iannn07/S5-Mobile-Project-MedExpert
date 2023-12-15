@@ -45,6 +45,12 @@ class _GalleryViewState extends State<GalleryView> {
       navigationBar: CupertinoNavigationBar(
         middle: Text(widget.title),
         automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: widget.onDetectorViewModeChanged,
+          child: Icon(
+            Platform.isIOS ? Icons.camera_alt_outlined : Icons.camera,
+          ),
+        ),
       ),
       child: _galleryBody(),
     );
@@ -67,23 +73,35 @@ class _GalleryViewState extends State<GalleryView> {
               Icons.image,
               size: 200,
             ),
+      SizedBox(
+        height: 40,
+      ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: CupertinoButton(
+          color: CupertinoColors.activeBlue,
           onPressed: _getImageAsset,
           child: Text('From Assets'),
         ),
       ),
+      SizedBox(
+        height: 40,
+      ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: CupertinoButton(
+          color: CupertinoColors.activeBlue,
           child: Text('From Gallery'),
           onPressed: () => _getImage(ImageSource.gallery),
         ),
       ),
+      SizedBox(
+        height: 40,
+      ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: CupertinoButton(
+          color: CupertinoColors.activeBlue,
           child: Text('Take a picture'),
           onPressed: () => _getImage(ImageSource.camera),
         ),
@@ -92,7 +110,9 @@ class _GalleryViewState extends State<GalleryView> {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-              '${_path == null ? '' : 'Image path: $_path'}\n\n${widget.text ?? ''}'),
+            '${_path == null ? '' : 'Image path: $_path'}\n\n${widget.text ?? ''}',
+            style: TextStyle(color: Colors.black, fontSize: 12.0),
+          ),
         ),
     ]);
   }
@@ -156,9 +176,6 @@ class _GalleryViewState extends State<GalleryView> {
                       ),
                     ),
                   ),
-                  ElevatedButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: Text('Cancel')),
                 ],
               ),
             ),
