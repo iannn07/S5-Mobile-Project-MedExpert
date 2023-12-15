@@ -1,16 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:settings_ui/pages/settings.dart';
-
-class SettingUI extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Setting UI",
-      home: EditProfilePage(),
-    );
-  }
-}
+import 'package:go_router/go_router.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override
@@ -22,15 +13,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: CupertinoNavigationBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
+        middle: Text("Edit Profile"),
         leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-          ),
-          onPressed: () {},
+          icon: Icon(Icons.arrow_back_ios, color: Colors.blue),
+          onPressed: () {
+            context.pop(context);
+          },
         ),
       ),
       body: Container(
@@ -68,39 +58,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(
-                                "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
-                              ))),
+                              image: AssetImage("lib/img/doctor.jpg"))),
                     ),
-                    Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                            ),
-                            color: Colors.green,
-                          ),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                          ),
-                        )),
                   ],
                 ),
               ),
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "medExpert", false),
-              buildTextField("E-mail", "medExper@gmail.com", false),
-              buildTextField("Password", "********", true),
-              buildTextField("Location", "Indonesia", false),
+              buildTextField("Full Name",
+                  FirebaseAuth.instance.currentUser!.displayName!, false),
+              buildTextField(
+                  "E-mail", FirebaseAuth.instance.currentUser!.email!, false),
               SizedBox(
                 height: 35,
               ),
@@ -108,14 +77,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pop(context);
+                    },
                     style: ElevatedButton.styleFrom(
-                    shadowColor: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
+                      backgroundColor: Color.fromARGB(255, 227, 240, 255),
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
-                        ),),
+                      ),
+                    ),
                     child: Text(
                       "CANCEL",
                       style: TextStyle(
@@ -125,14 +97,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pop(context);
+                    },
                     style: ElevatedButton.styleFrom(
-                    shadowColor: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
+                      backgroundColor: Color(0xFF1564c0),
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
-                        ),),
+                      ),
+                    ),
                     child: Text(
                       "SAVE",
                       style: TextStyle(

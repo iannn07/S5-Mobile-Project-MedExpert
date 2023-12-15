@@ -69,21 +69,27 @@ class _GalleryViewState extends State<GalleryView> {
             ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: CupertinoButton.filled(
           onPressed: _getImageAsset,
           child: Text('From Assets'),
         ),
       ),
+      SizedBox(
+        height: 40,
+      ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: CupertinoButton.filled(
           child: Text('From Gallery'),
           onPressed: () => _getImage(ImageSource.gallery),
         ),
       ),
+      SizedBox(
+        height: 40,
+      ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: CupertinoButton.filled(
           child: Text('Take a picture'),
           onPressed: () => _getImage(ImageSource.camera),
         ),
@@ -92,7 +98,9 @@ class _GalleryViewState extends State<GalleryView> {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-              '${_path == null ? '' : 'Image path: $_path'}\n\n${widget.text ?? ''}'),
+            '${_path == null ? '' : 'Image path: $_path'}\n\n${widget.text ?? ''}',
+            style: TextStyle(color: Colors.black, fontSize: 12.0),
+          ),
         ),
     ]);
   }

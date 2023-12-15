@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/main/CRUD/edit_profile.dart';
 // import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable
@@ -21,7 +22,7 @@ class ProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                _profilePic(),
+                _profilePic(context),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 4.0),
                   child: Text(FirebaseAuth.instance.currentUser!.displayName!,
@@ -90,7 +91,7 @@ class ProfilePage extends StatelessWidget {
         child: SizedBox(height: 30, width: 35, child: Image.asset(image)),
       );
 
-  Container _profilePic() => Container(
+  Container _profilePic(BuildContext context) => Container(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(50.0, 30.0, 50.0, 15.0),
           child: Stack(
@@ -101,11 +102,16 @@ class ProfilePage extends StatelessWidget {
                 radius: 80,
               ),
               Container(
-                height: 40.0,
-                width: 40.0,
-                alignment: Alignment.bottomRight,
-                child: Image.asset("lib/img/edit.png"),
-              ),
+                  height: 40.0,
+                  width: 40.0,
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => EditProfilePage()));
+                    },
+                    child: Image.asset('lib/img/edit.png'),
+                  )),
             ],
           ),
         ),
