@@ -34,7 +34,7 @@ class _ImageLabelViewState extends State<ImageLabelView> {
   @override
   Widget build(BuildContext context) {
     return DetectorView(
-      title: 'Image Labeler',
+      title: 'Pick an image',
       customPaint: _customPaint,
       text: _text,
       onImage: _processImage,
