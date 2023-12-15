@@ -16,12 +16,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       appBar: CupertinoNavigationBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         middle: Text("Edit Profile"),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.blue),
-          onPressed: () {
-            context.pop(context);
-          },
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
@@ -31,12 +26,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
           },
           child: ListView(
             children: [
-              Text(
-                "Edit Profile",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-              ),
               SizedBox(
-                height: 15,
+                height: 80,
               ),
               Center(
                 child: Stack(
@@ -45,16 +36,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       width: 130,
                       height: 130,
                       decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.1),
-                                offset: Offset(0, 10))
-                          ],
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.cover,
@@ -70,11 +51,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   FirebaseAuth.instance.currentUser!.displayName!, false),
               buildTextField(
                   "E-mail", FirebaseAuth.instance.currentUser!.email!, false),
+              buildTextField("Password", "********", true),
               SizedBox(
                 height: 35,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
                     onPressed: () {
@@ -82,19 +64,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(255, 227, 240, 255),
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+                      padding: EdgeInsets.symmetric(horizontal: 30),
                     ),
                     child: Text(
                       "CANCEL",
-                      style: TextStyle(
-                          fontSize: 14,
-                          letterSpacing: 2.2,
-                          color: Colors.black),
+                      style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
+                  ),
+                  SizedBox(
+                    width: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {
@@ -102,18 +80,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF1564c0),
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+                      padding: EdgeInsets.symmetric(horizontal: 30),
                     ),
                     child: Text(
                       "SAVE",
-                      style: TextStyle(
-                          fontSize: 14,
-                          letterSpacing: 2.2,
-                          color: Colors.white),
+                      style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                   ),
                 ],
