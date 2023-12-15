@@ -1,8 +1,7 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-// import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/main/CRUD/edit_profile.dart';
 
 // ignore: must_be_immutable
 class ProfilePage extends StatelessWidget {
@@ -21,7 +20,7 @@ class ProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                _profilePic(),
+                _profilePic(context),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 4.0),
                   child: Text(FirebaseAuth.instance.currentUser!.displayName!,
@@ -44,25 +43,30 @@ class ProfilePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    // ElevatedButton(
-                    //   onPressed: () {},
-                    //   child: Text(
-                    //     'Edit Profile',
-                    //     style: TextStyle(
-                    //       fontWeight: FontWeight.bold,
-                    //       color: Color(0xFF1564c0),
-                    //     ),
-                    //   ),
-                    // ),
-                    // SizedBox(width: 20),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF1564c0),
+                          padding: EdgeInsets.symmetric(horizontal: 30)),
+                      child: const Text(
+                        "EDIT PROFILE",
+                        style:
+                            TextStyle(fontSize: 15, color: Color(0xFFfaf9f9)),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => EditProfilePage()));
+                      },
+                    ),
+                    SizedBox(width: 20),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF1564c0),
+                            backgroundColor: Color.fromARGB(255, 227, 240, 255),
                             padding: EdgeInsets.symmetric(horizontal: 30)),
                         child: const Text(
                           "LOGOUT",
-                          style:
-                              TextStyle(fontSize: 15, color: Color(0xFFfaf9f9)),
+                          style: TextStyle(fontSize: 15, color: Colors.black),
                         ),
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
@@ -90,7 +94,7 @@ class ProfilePage extends StatelessWidget {
         child: SizedBox(height: 30, width: 35, child: Image.asset(image)),
       );
 
-  Container _profilePic() => Container(
+  Container _profilePic(BuildContext context) => Container(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(50.0, 30.0, 50.0, 15.0),
           child: Stack(
@@ -99,12 +103,6 @@ class ProfilePage extends StatelessWidget {
               const CircleAvatar(
                 backgroundImage: AssetImage("lib/img/doctor.jpg"),
                 radius: 80,
-              ),
-              Container(
-                height: 40.0,
-                width: 40.0,
-                alignment: Alignment.bottomRight,
-                child: Image.asset("lib/img/edit.png"),
               ),
             ],
           ),

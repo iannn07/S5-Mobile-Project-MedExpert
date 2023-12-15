@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:med_expert/views/main/homepage/pire/description_section.dart';
 import 'package:med_expert/views/main/homepage/pire/video_section.dart';
 
+// ignore: must_be_immutable
 class Course extends StatefulWidget {
-  String img;
+  final String img;
   Course(this.img);
 
   @override
@@ -51,7 +52,7 @@ class _CourseState extends State<Course> {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 image: DecorationImage(
-                  image: AssetImage('lib/img/Wallpaper MedExpert.png'),
+                  image: AssetImage("lib/img/Surgery.png"),
                 ),
               ),
               child: Center(
@@ -70,8 +71,8 @@ class _CourseState extends State<Course> {
               ),
             ),
             SizedBox(height: 15),
-            Text(
-              "${'lib/img/Wallpaper MedExpert.png'} Complete Course",
+            const Text(
+              "Congential Heart Disease",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 5),
@@ -120,7 +121,7 @@ class _CourseState extends State<Course> {
                           "Videos",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -145,7 +146,7 @@ class _CourseState extends State<Course> {
                           "Description",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
