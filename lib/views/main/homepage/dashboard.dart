@@ -12,7 +12,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   List<String> imgList = [
-    'Congential Heart Disease',
+    'Heart',
     'Pathology',
     'Surgery',
     'Drugs',
