@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-class SettingUI  extends StatelessWidget {
-  const SettingUI ({super.key});
+class SettingUI extends StatelessWidget {
+  const SettingUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class settingProfilePage extends StatefulWidget {
 class _settingProfilePageState extends State<settingProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
@@ -39,15 +38,13 @@ class _settingProfilePageState extends State<settingProfilePage> {
           IconButton(
             icon: Icon(
               Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {},
+              color: Colors.black,
+            ),
+            onPressed: () {},
           ),
         ],
       ),
-      body: Container(
-        
-      ),
+      body: Container(),
     );
   }
 }
