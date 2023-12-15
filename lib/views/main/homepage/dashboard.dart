@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/main/homepage/pire/course.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -10,8 +11,8 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List imgList = [
-    'Anatomy',
+  List<String> imgList = [
+    'Congential Heart Disease',
     'Pathology',
     'Surgery',
     'Drugs',
@@ -108,7 +109,13 @@ class _DashboardState extends State<Dashboard> {
                     ),
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Course(imgList[index]),
+                              ));
+                        },
                         child: Container(
                           padding: EdgeInsets.symmetric(
                               vertical: 20, horizontal: 10),

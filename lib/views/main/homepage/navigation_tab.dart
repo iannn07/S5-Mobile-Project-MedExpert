@@ -1,10 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:med_expert/views/main/homepage/dashboard.dart';
 import 'package:med_expert/views/main/homepage/detector/label_detector_view.dart';
+import 'package:med_expert/views/main/homepage/pire/course.dart';
 import 'package:med_expert/views/main/homepage/profile.dart';
 
 class NavigationTab extends StatelessWidget {
-  const NavigationTab({Key? key}) : super(key: key);
+  NavigationTab({Key? key}) : super(key: key);
+  List<String> imgList = [
+    'Congential Heart Disease',
+    'Pathology',
+    'Surgery',
+    'Drugs',
+    'Radiology',
+    'Heart',
+  ];
   @override
   Widget build(BuildContext context) => CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
@@ -30,7 +39,7 @@ class NavigationTab extends StatelessWidget {
             return ImageLabelView();
           case 2:
             print("2");
-            return Container();
+            return Course(imgList[index]);
           case 3:
             return ProfilePage();
           default:

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoSection extends StatelessWidget {
-  List videoList = [
+  final List videoList = [
     'Understanding Congential Heart Disease',
     'Congential Heart Defects'
         'Pediatric Cardiology: Congential Heart Disease',
