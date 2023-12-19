@@ -4,6 +4,7 @@ import 'package:med_expert/views/main/homepage/detector/label_detector_view.dart
 import 'package:med_expert/views/main/homepage/pire/course.dart';
 import 'package:med_expert/views/main/homepage/profile.dart';
 
+// ignore: must_be_immutable
 class NavigationTab extends StatelessWidget {
   NavigationTab({Key? key}) : super(key: key);
   List<String> imgList = [

@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
 import 'package:med_expert/views/main/homepage/pire/course.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+  
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -19,6 +20,27 @@ class _DashboardState extends State<Dashboard> {
     'Radiology',
     'Heart',
   ];
+
+  // String _searchTerm = "";
+  // List<DataItem> _filteredItems = [];
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _filteredItems = widget.items; // Initially, show all items.
+  // }
+
+  // void _onSearchTextChanged(String text) {
+  //   setState(() {
+  //     _searchTerm = text.toLowerCase();
+  //     _filteredItems = widget.items
+  //         .where((item) =>
+  //             item.title.toLowerCase().contains(_searchTerm) ||
+  //             item.description.toLowerCase().contains(_searchTerm) ||
+  //             item.tags.any((tag) => tag.toLowerCase().contains(_searchTerm)))
+  //         .toList();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
