@@ -6,14 +6,13 @@ import 'package:med_expert/views/main/homepage/profile.dart';
 
 // ignore: must_be_immutable
 class NavigationTab extends StatelessWidget {
-  NavigationTab({Key? key}) : super(key: key);
-  List<String> imgList = [
-    'Congential Heart Disease',
+  final List<String> imgList = [
+    'Heart',
     'Pathology',
     'Surgery',
     'Drugs',
     'Radiology',
-    'Heart',
+    'Anatomy',
   ];
   @override
   Widget build(BuildContext context) => CupertinoTabScaffold(
