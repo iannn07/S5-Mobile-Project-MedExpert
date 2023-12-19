@@ -5,8 +5,6 @@ import 'package:med_expert/views/main/homepage/pire/course.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
-  
-
   @override
   State<Dashboard> createState() => _DashboardState();
 }
