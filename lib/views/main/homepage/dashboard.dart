@@ -17,7 +17,7 @@ class _DashboardState extends State<Dashboard> {
     'Surgery',
     'Drugs',
     'Radiology',
-    'Heart',
+    'Anatomy',
   ];
 
   @override
