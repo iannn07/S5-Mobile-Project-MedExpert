@@ -6,12 +6,12 @@ import 'package:med_expert/views/main/homepage/profile.dart';
 
 class NavigationTab extends StatelessWidget {
   final List<String> imgList = [
-    'Congential Heart Disease',
+    'Heart',
     'Pathology',
     'Surgery',
     'Drugs',
     'Radiology',
-    'Heart',
+    'Anatomy',
   ];
   @override
   Widget build(BuildContext context) => CupertinoTabScaffold(
