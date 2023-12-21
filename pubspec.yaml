@@ -44,10 +44,13 @@ dependencies:
   image_picker: ^1.0.5
   camera: ^0.10.5+7
   path: ^1.8.2
-  path_provider: ^2.1.0
-  google_mlkit_image_labeling:
-    path: google_mlkit_image_labeling
+  path_provider: 2.0.15
+  # google_mlkit_image_labeling:
+  #   path: google_mlkit_image_labeling
   youtube_player_flutter: ^8.1.2
+  tflite_v2: ^1.0.0
+  get: ^4.6.6
+  permission_handler: ^11.1.0
 
 dev_dependencies:
   flutter_test:
@@ -73,23 +76,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/img/Wallpaper MedExpert v2.png
-    - lib/img/Wallpaper MedExpert.png
-    - lib/img/Login Hospital Vector.png
-    - lib/img/smile.png
-    - lib/img/linkedin.png
-    - lib/img/meduium.png
-    - lib/img/twitter.png
-    - lib/img/edit.png
-    - lib/img/doctor.jpg
-    - lib/img/Anatomy.png
-    - lib/img/Heart.png
-    - lib/img/Pathology.png
-    - lib/img/Radiology.png
-    - lib/img/Drugs.png
-    - lib/img/Surgery.png
+    - lib/img/
     - assets/ml/
-    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

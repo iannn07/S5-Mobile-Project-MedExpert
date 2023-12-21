@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:med_expert/views/main/homepage/dashboard.dart';
-import 'package:med_expert/views/main/homepage/detector/label_detector_view.dart';
+import 'package:med_expert/views/main/homepage/detector/label_view.dart';
 import 'package:med_expert/views/main/homepage/pire/course.dart';
 import 'package:med_expert/views/main/homepage/profile.dart';
 
@@ -46,7 +46,7 @@ class NavigationTab extends StatelessWidget {
             return Dashboard();
           case 1:
             print("1");
-            return ImageLabelView();
+            return ImageLabel();
           case 2:
             print("2");
             return Course(imgList[index]);
