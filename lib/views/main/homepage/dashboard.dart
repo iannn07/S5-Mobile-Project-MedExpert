@@ -1,15 +1,45 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/main/homepage/pire/course.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
-
   @override
   State<Dashboard> createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
+  List<String> imgList = [
+    'Heart',
+    'Pathology',
+    'Surgery',
+    'Drugs',
+    'Radiology',
+    'Anatomy',
+  ];
+
+  // String _searchTerm = "";
+  // List<DataItem> _filteredItems = [];
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _filteredItems = widget.items; // Initially, show all items.
+  // }
+
+  // void _onSearchTextChanged(String text) {
+  //   setState(() {
+  //     _searchTerm = text.toLowerCase();
+  //     _filteredItems = widget.items
+  //         .where((item) =>
+  //             item.title.toLowerCase().contains(_searchTerm) ||
+  //             item.description.toLowerCase().contains(_searchTerm) ||
+  //             item.tags.any((tag) => tag.toLowerCase().contains(_searchTerm)))
+  //         .toList();
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +51,21 @@ class _DashboardState extends State<Dashboard> {
               decoration: BoxDecoration(
                 color: Color(0xFF1564c0),
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25),
                 ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 40),
+                  SizedBox(height: 30),
                   Padding(
                     padding: EdgeInsets.only(left: 3, bottom: 15),
                     child: Text(
                       "Hi, " + FirebaseAuth.instance.currentUser!.displayName!,
                       style: TextStyle(
                         fontSize: 40,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                         letterSpacing: 1,
                         wordSpacing: 2,
                         color: Colors.white,
@@ -76,40 +106,68 @@ class _DashboardState extends State<Dashboard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Discover",
+                        "What you want to learn today?",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        "See All",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF1564c0),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF1564c0),
-                                padding: EdgeInsets.symmetric(horizontal: 80)),
-                            child: const Text(
-                              "LOGOUT",
-                              style: TextStyle(
-                                  fontSize: 24, color: Color(0xFFfaf9f9)),
-                            ),
-                            onPressed: () {
-                              FirebaseAuth.instance.signOut();
-                              context.go('/login');
-                            }),
-                      ]),
+                  SizedBox(height: 20),
+                  GridView.builder(
+                    itemCount: imgList.length,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio:
+                          (MediaQuery.of(context).size.height - 30 - 5) /
+                              (4 * 240),
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                    ),
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Course(imgList[index]),
+                              ));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color.fromARGB(255, 227, 240, 255),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset(
+                                  "lib/img/${imgList[index]}.png",
+                                  width: 110,
+                                  height: 110,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                imgList[index],
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

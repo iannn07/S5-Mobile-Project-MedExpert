@@ -133,7 +133,7 @@ class SignUp extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF1564c0),
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 80)),
+                                      EdgeInsets.symmetric(horizontal: 60)),
                               child: const Text(
                                 "SIGN UP",
                                 style: TextStyle(
@@ -155,23 +155,18 @@ class SignUp extends StatelessWidget {
                         SizedBox(
                           height: 20,
                         ),
-                        CupertinoButton(
-                          child: const Text("Already have an account? Sign In"),
-                          onPressed: () => context.push('/login'),
-                        ),
-                        // Container(
-                        //   padding: EdgeInsets.symmetric(horizontal: 80),
-                        //   child: Column(
-                        //     crossAxisAlignment: CrossAxisAlignment.center,
-                        //     children: <Widget>[
-                        //       Image(
-                        //         image: AssetImage(
-                        //             "lib/img/Login Hospital Vector.png"),
-                        //         alignment: Alignment.center,
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Already have an account?"),
+                              CupertinoButton(
+                                  child: const Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                        color: CupertinoColors.activeBlue),
+                                  ),
+                                  onPressed: () => context.push('/login')),
+                            ]),
                       ],
                     ),
                   ),

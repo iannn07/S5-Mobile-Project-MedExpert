@@ -116,7 +116,7 @@ class LoginPage extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF1564c0),
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 80)),
+                                      EdgeInsets.symmetric(horizontal: 60)),
                               child: const Text(
                                 "LOGIN",
                                 style: TextStyle(
@@ -134,11 +134,20 @@ class LoginPage extends StatelessWidget {
                               }),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
-                        CupertinoButton(
-                            child: const Text("Don't have an account? Sign Up"),
-                            onPressed: () => context.push('/signup')),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Don't have an account?"),
+                              CupertinoButton(
+                                  child: const Text(
+                                    "Sign Up",
+                                    style: TextStyle(
+                                        color: CupertinoColors.activeBlue),
+                                  ),
+                                  onPressed: () => context.push('/signup')),
+                            ]),
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 80),
                           child: Column(
