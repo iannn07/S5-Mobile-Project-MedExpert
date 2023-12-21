@@ -49,6 +49,8 @@ dependencies:
   #   path: google_mlkit_image_labeling
   youtube_player_flutter: ^8.1.2
   tflite_v2: ^1.0.0
+  get: ^4.6.6
+  permission_handler: ^11.1.0
 
 dev_dependencies:
   flutter_test:
