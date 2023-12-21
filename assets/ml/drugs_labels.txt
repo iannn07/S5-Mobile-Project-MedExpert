@@ -1,0 +1,12 @@
+0 Alpara
+1 BodrexFluBatuk
+2 BodrexFluBatukBerdahak
+3 Dextamine
+4 IncidalOD
+5 Kaplet_AmlodipineBesilate
+6 PanadolBiru
+7 Paramex
+8 Paratusin
+9 Simvastatin10Mg
+10 Strip_AmlodipineBesilate
+11 Valsartan
