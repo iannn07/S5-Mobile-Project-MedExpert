@@ -11,12 +11,22 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   List<String> imgList = [
-    'Heart',
+    'Ambroxol',
+    'Amlodipine',
+    'Bodrex Flu dan Batuk Berdahak',
+    'Bodrex Flu dan Batuk'
+        'Dextamine',
+    'Diabetes Tipe 1',
+    'Diabetes Tipe 2',
+    'Transplantasi Jantung',
+    'Incidial OD',
+    'Panadol Biru',
+    'Paramex',
+    'Paratusin',
     'Pathology',
-    'Surgery',
-    'Drugs',
-    'Radiology',
-    'Anatomy',
+    'Simvastatin',
+    'Strip Amlodipine',
+    'Valsartan',
   ];
 
   // String _searchTerm = "";
