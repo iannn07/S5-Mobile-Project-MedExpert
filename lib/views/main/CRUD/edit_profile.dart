@@ -110,36 +110,41 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   SizedBox(
                     width: 20,
                   ),
-                  // ElevatedButton(
-                  //   onPressed: () async {
-                  //     try {
-                  //       FirebaseAuth.instance.currentUser!
-                  //           .updateDisplayName(name.text);
-                  //       Navigator.pushReplacement(
-                  //           context,
-                  //           MaterialPageRoute(
-                  //               builder: (context) => NavigationTab()));
-                  //     } catch (e) {
-                  //       print(e);
-                  //     }
-                  //     if (oldPassword.value.text.isNotEmpty &&
-                  //         newPassword.value.text.isNotEmpty) {
-                  //       await FirebaseAuth.instance.signInWithEmailAndPassword(
-                  //           email: FirebaseAuth.instance.currentUser!.email!,
-                  //           password: oldPassword.text);
-                  //       FirebaseAuth.instance.currentUser!
-                  //           .updatePassword(newPassword.text);
-                  //     }
-                  //   },
-                  //   style: ElevatedButton.styleFrom(
-                  //     backgroundColor: Color(0xFF1564c0),
-                  //     padding: EdgeInsets.symmetric(horizontal: 30),
-                  //   ),
-                  //   child: Text(
-                  //     "SAVE",
-                  //     style: TextStyle(fontSize: 14, color: Colors.white),
-                  //   ),
-                  // ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      try {
+                        await FirebaseAuth.instance.currentUser
+                            ?.updateDisplayName(name.text);
+
+                        if (oldPassword.text.isNotEmpty &&
+                            newPassword.text.isNotEmpty) {
+                          await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                            email: FirebaseAuth.instance.currentUser!.email!,
+                            password: oldPassword.text,
+                          );
+                          await FirebaseAuth.instance.currentUser
+                              ?.updatePassword(newPassword.text);
+                        }
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NavigationTab()),
+                        );
+                      } catch (e) {
+                        print(e);
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF1564c0),
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                    ),
+                    child: Text(
+                      "SAVE",
+                      style: TextStyle(fontSize: 14, color: Colors.white),
+                    ),
+                  ),
                 ],
               ),
             ],
