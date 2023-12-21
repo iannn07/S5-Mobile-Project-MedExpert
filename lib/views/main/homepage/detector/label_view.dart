@@ -93,8 +93,8 @@ class _ImageLabelState extends State<ImageLabel> {
             if (_image != null)
               Image.file(
                 File(_image!.path),
-                height: 200,
-                width: 200,
+                height: 400,
+                width: 400,
                 fit: BoxFit.cover,
               )
             else
