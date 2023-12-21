@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:med_expert/views/main/homepage/navigation_tab.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override
@@ -10,6 +11,9 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool showPassword = false;
+  var name = TextEditingController();
+  var oldPassword = TextEditingController();
+  var newPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +51,43 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name",
-                  FirebaseAuth.instance.currentUser!.displayName!, false),
-              buildTextField(
-                  "E-mail", FirebaseAuth.instance.currentUser!.email!, false),
-              buildTextField("Password", "********", true),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 4.0),
+                    child: Text(FirebaseAuth.instance.currentUser!.displayName!,
+                        style: TextStyle(
+                            fontSize: 28.0, fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextFormField(
+                controller: name,
+                decoration: InputDecoration(
+                  hintText: "Name",
+                ),
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              TextFormField(
+                obscureText: true,
+                controller: oldPassword,
+                decoration: InputDecoration(hintText: "Old Password"),
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              TextFormField(
+                obscureText: true,
+                controller: newPassword,
+                decoration: InputDecoration(hintText: "New Password"),
+              ),
               SizedBox(
                 height: 35,
               ),
@@ -75,8 +111,25 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     width: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      context.pop(context);
+                    onPressed: () async {
+                      try {
+                        FirebaseAuth.instance.currentUser!
+                            .updateDisplayName(name.text);
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NavigationTab()));
+                      } catch (e) {
+                        print(e);
+                      }
+                      if (oldPassword.value.text.isNotEmpty &&
+                          newPassword.value.text.isNotEmpty) {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: FirebaseAuth.instance.currentUser!.email!,
+                            password: oldPassword.text);
+                        FirebaseAuth.instance.currentUser!
+                            .updatePassword(newPassword.text);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF1564c0),

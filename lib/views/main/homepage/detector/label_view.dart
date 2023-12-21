@@ -15,7 +15,7 @@ class _ImageLabelState extends State<ImageLabel> {
   File? file;
   var _recognitions;
   var v = "";
-  // var dataList = [];
+
   @override
   void initState() {
     super.initState();
@@ -31,9 +31,22 @@ class _ImageLabelState extends State<ImageLabel> {
     );
   }
 
-  Future<void> _pickImage() async {
+  Future<void> _pickImageGallery() async {
     try {
       final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      setState(() {
+        _image = image;
+        file = File(image!.path);
+      });
+      detectimage(file!);
+    } catch (e) {
+      print('Error picking image: $e');
+    }
+  }
+
+  Future<void> _pickImageCamera() async {
+    try {
+      final XFile? image = await _picker.pickImage(source: ImageSource.camera);
       setState(() {
         _image = image;
         file = File(image!.path);
@@ -48,8 +61,8 @@ class _ImageLabelState extends State<ImageLabel> {
     int startTime = new DateTime.now().millisecondsSinceEpoch;
     var recognitions = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 6,
-      threshold: 0.05,
+      numResults: 2,
+      threshold: 0.6,
       imageMean: 127.5,
       imageStd: 127.5,
     );
@@ -80,8 +93,8 @@ class _ImageLabelState extends State<ImageLabel> {
             if (_image != null)
               Image.file(
                 File(_image!.path),
-                height: 200,
-                width: 200,
+                height: 400,
+                width: 400,
                 fit: BoxFit.cover,
               )
             else
@@ -89,8 +102,14 @@ class _ImageLabelState extends State<ImageLabel> {
             SizedBox(height: 20),
             CupertinoButton(
               color: CupertinoColors.activeBlue,
-              onPressed: _pickImage,
+              onPressed: _pickImageGallery,
               child: Text('Pick Image from Gallery'),
+            ),
+            SizedBox(height: 20),
+            CupertinoButton(
+              color: CupertinoColors.activeBlue,
+              onPressed: _pickImageCamera,
+              child: Text('Capture an Image'),
             ),
             SizedBox(height: 20),
             Text(v),
