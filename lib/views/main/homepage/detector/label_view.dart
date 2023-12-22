@@ -58,7 +58,6 @@ class _ImageLabelState extends State<ImageLabel> {
   }
 
   Future detectimage(File image) async {
-    int startTime = new DateTime.now().millisecondsSinceEpoch;
     var recognitions = await Tflite.runModelOnImage(
       path: image.path,
       numResults: 2,
@@ -68,15 +67,14 @@ class _ImageLabelState extends State<ImageLabel> {
     );
     setState(() {
       _recognitions = recognitions;
-      v = recognitions.toString();
-      // dataList = List<Map<String, dynamic>>.from(jsonDecode(v));
+      v = "";
+      for (var element in _recognitions) {
+        for (var key in element.keys) {
+          v += "${key}: ${element[key]}\n";
+        }
+        v += "\n";
+      }
     });
-    print("//////////////////////////////////////////////////");
-    print(_recognitions);
-    // print(dataList);
-    print("//////////////////////////////////////////////////");
-    int endTime = new DateTime.now().millisecondsSinceEpoch;
-    print("Inference took ${endTime - startTime}ms");
   }
 
   @override
