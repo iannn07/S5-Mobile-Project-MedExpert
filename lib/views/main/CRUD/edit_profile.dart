@@ -112,23 +112,38 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      try {
-                        FirebaseAuth.instance.currentUser!
-                            .updateDisplayName(name.text);
-                        Navigator.pushReplacement(
+                      if (name.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Name can't be empty"),
+                        ));
+                      } else if (oldPassword.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Old Password can't be empty"),
+                        ));
+                      } else if (newPassword.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("New Password can't be empty"),
+                        ));
+                      } else {
+                        try {
+                          await FirebaseAuth.instance.currentUser
+                              ?.updateDisplayName(name.text);
+                          await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                            email: FirebaseAuth.instance.currentUser!.email!,
+                            password: oldPassword.text,
+                          );
+                          await FirebaseAuth.instance.currentUser
+                              ?.updatePassword(newPassword.text);
+
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => NavigationTab()));
-                      } catch (e) {
-                        print(e);
-                      }
-                      if (oldPassword.value.text.isNotEmpty &&
-                          newPassword.value.text.isNotEmpty) {
-                        await FirebaseAuth.instance.signInWithEmailAndPassword(
-                            email: FirebaseAuth.instance.currentUser!.email!,
-                            password: oldPassword.text);
-                        FirebaseAuth.instance.currentUser!
-                            .updatePassword(newPassword.text);
+                                builder: (context) => NavigationTab()),
+                          );
+                        } catch (e) {
+                          print(e);
+                        }
                       }
                     },
                     style: ElevatedButton.styleFrom(

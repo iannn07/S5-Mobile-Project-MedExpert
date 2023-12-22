@@ -1,0 +1,15 @@
+0 Alpara
+1 BodrexFluBatuk
+2 BodrexFluBatukBerdahak
+3 IncidalOD
+4 Kaplet_AmlodipineBesilate
+5 Paramex
+6 Simvastatin10Mg
+7 Strip_AmlodipineBesilate
+8 Valsartan
+9 Pneumonia
+10 Normal Lung
+11 Abnormal Heartbeat
+12 Normal Heartbeat
+13 Fractured Bone
+14 Normal Bone

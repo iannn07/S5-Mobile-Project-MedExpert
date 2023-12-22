@@ -26,8 +26,8 @@ class _ImageLabelState extends State<ImageLabel> {
 
   loadmodel() async {
     await Tflite.loadModel(
-      model: "assets/ml/drugs_labeler.tflite",
-      labels: "assets/ml/drugs_labels.txt",
+      model: "assets/ml/final_model.tflite",
+      labels: "assets/ml/final_model_label.txt",
     );
   }
 
