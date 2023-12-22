@@ -10,7 +10,6 @@ import 'package:med_expert/views/main/homepage/pire/course_desc/incidal_desc.dar
 import 'package:med_expert/views/main/homepage/pire/course_desc/panadol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paramex_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paratusin_desc.dart';
-import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/ambroxol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/simvastatin_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/strip_amlodipine_desc.dart';

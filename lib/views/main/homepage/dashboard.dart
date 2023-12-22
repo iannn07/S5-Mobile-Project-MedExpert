@@ -1,11 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:med_expert/views/main/homepage/pire/material.dart';
-import 'package:med_expert/views/main/homepage/pire/course.dart';
-import 'package:med_expert/views/main/homepage/pire/drugs_list.dart';
-// import 'package:go_router/go_router.dart';
-// ignore: unused_import
-// import 'package:med_expert/views/main/homepage/pire/course.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key, required List<String> imgList});
@@ -106,8 +101,7 @@ class _DashboardState extends State<Dashboard> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Materials(
-                                    ),
+                                builder: (context) => Materials(),
                               ));
                         },
                         child: Container(
