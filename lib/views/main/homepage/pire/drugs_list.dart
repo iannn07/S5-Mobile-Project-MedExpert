@@ -71,31 +71,70 @@ class _DrugsListState extends State<DrugsList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
-        middle: Text('Daftar Obat'),
+        middle: Text('List of Drugs',
+        style: TextStyle(fontSize: 20),
+        ),
         automaticallyImplyLeading: false,
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.all(10),
-        
-        itemCount: drugsList.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              drugsList[index]),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Course(
-                    img: drugsList[index],
-                    category: 'obat',
+      body: Padding(
+  padding: const EdgeInsets.all(10),
+  child: Column(
+    children: [
+      const SizedBox(
+        height: 20,
+      ),
+      TextField(
+        onChanged: (value) => _runFilter(value),
+        decoration: const InputDecoration(
+          labelText: 'Search',
+          suffixIcon: Icon(Icons.search),
+        ),
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+      Expanded(
+        child: _foundUsers.isNotEmpty
+            ? ListView.builder(
+                itemCount: _foundUsers.length,
+                itemBuilder: (context, index) => Card(
+                  key: ValueKey(_foundUsers[index]["id"]),
+                  color: Color(0xFF1564c0),
+                  elevation: 4,
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: ListTile(
+                    onTap: () {
+                      // Use Navigator.push when ListTile is tapped
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Course(
+                            img: drugsList[index],
+                            category: 'obat',
+                          ),
+                          
+                        ),
+                      );
+                    },
+                    leading: Text(
+                      _foundUsers[index]["id"].toString(),
+                      style: const TextStyle(fontSize: 24, color: Colors.white),
+                    ),
+                    title: Text(
+                      _foundUsers[index]['name'],
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
-              );
-            },
-          );
-        },
+              )
+            : const Text(
+                'No results found',
+                style: TextStyle(fontSize: 24),
+              ),
       ),
+    ],
+  ),
+)
     );
   }
 }
