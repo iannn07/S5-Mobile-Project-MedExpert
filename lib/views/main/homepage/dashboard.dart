@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:med_expert/views/main/homepage/pire/drug_material.dart';
 import 'package:med_expert/views/main/homepage/pire/drugs_material.dart';
-import 'package:med_expert/views/main/homepage/pire/material.dart';
+import 'package:med_expert/views/main/homepage/pire/pathology_material.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key, required List<String> imgList});
@@ -18,10 +17,6 @@ class _DashboardState extends State<Dashboard> {
     'Drugs',
     'Radiology',
     'Anatomy',
-  ];
-  List<String> classes = [
-    'drugsMaterials',
-
   ];
 
   @override
@@ -104,11 +99,52 @@ class _DashboardState extends State<Dashboard> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => drugsMaterials(),
-                              ));
+                          switch (index) {
+                            case 0:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => heartMaterial(),
+                                  ));
+                              break;
+                            case 1:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ,
+                                  ));
+                              break;
+                            case 2:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ,
+                                  ));
+                              break;
+                            case 3:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => drugsMaterials(),
+                                  ));
+                              break;
+                            case 4:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ,
+                                  ));
+                              break;
+                            case 5:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ,
+                                  ));
+                              break;
+                            default:
+                              throw Exception('Unknown tab index: $index');
+                          }
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(
