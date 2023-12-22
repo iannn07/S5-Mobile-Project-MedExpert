@@ -21,7 +21,6 @@ class _DrugsListState extends State<DrugsList> {
     'Strip Amlodipine',
     'Valsartan',
   ];
-<<<<<<< HEAD
   
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Ambroxol"},
@@ -67,8 +66,6 @@ class _DrugsListState extends State<DrugsList> {
     });
 
   }
-=======
->>>>>>> cf0423ed146b3bbc72424579a01d8df999ffaf5b
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +75,6 @@ class _DrugsListState extends State<DrugsList> {
         automaticallyImplyLeading: false,
       ),
       body: ListView.builder(
-<<<<<<< HEAD
         padding: EdgeInsets.all(10),
         
         itemCount: drugsList.length,
@@ -86,12 +82,6 @@ class _DrugsListState extends State<DrugsList> {
           return ListTile(
             title: Text(
               drugsList[index]),
-=======
-        itemCount: drugsList.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(drugsList[index]),
->>>>>>> cf0423ed146b3bbc72424579a01d8df999ffaf5b
             onTap: () {
               Navigator.push(
                 context,

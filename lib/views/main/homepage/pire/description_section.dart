@@ -42,7 +42,6 @@ class DescriptionSection extends StatelessWidget {
             ),
             SizedBox(height: 20),
             SizedBox(height: 10),
-<<<<<<< HEAD
             // Row(
             //   children: [
             //     Text(
@@ -67,32 +66,6 @@ class DescriptionSection extends StatelessWidget {
             //     ),
             //   ],
             // ),
-=======
-            Row(
-              children: [
-                Text(
-                  "Rating : ",
-                  style: TextStyle(
-                    fontSize: 19,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(width: 5),
-                Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  "4.8",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
->>>>>>> cf0423ed146b3bbc72424579a01d8df999ffaf5b
           ],
         ),
       ),
