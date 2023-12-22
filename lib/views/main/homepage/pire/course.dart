@@ -33,7 +33,7 @@ class _CourseState extends State<Course> {
             padding: EdgeInsets.only(right: 10),
             child: Icon(
               Icons.notifications,
-              size: 28,
+              size: 20,
               color: Colors.blue,
             ),
           ),
