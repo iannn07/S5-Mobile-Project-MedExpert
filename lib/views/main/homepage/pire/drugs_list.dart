@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'course.dart';
 
@@ -24,8 +25,9 @@ class _DrugsListState extends State<DrugsList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Daftar Obat'),
+      appBar: CupertinoNavigationBar(
+        middle: Text('Daftar Obat'),
+        automaticallyImplyLeading: false,
       ),
       body: ListView.builder(
         itemCount: drugsList.length,

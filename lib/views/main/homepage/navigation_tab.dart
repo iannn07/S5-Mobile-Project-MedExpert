@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:med_expert/views/main/homepage/dashboard.dart';
 import 'package:med_expert/views/main/homepage/detector/label_view.dart';
-import 'package:med_expert/views/main/homepage/pire/course.dart';
 import 'package:med_expert/views/main/homepage/profile.dart';
 import 'package:med_expert/views/main/homepage/pire/drugs_list.dart';
 import 'package:med_expert/views/main/homepage/pire/disease_list.dart';
@@ -31,10 +30,10 @@ class NavigationTab extends StatelessWidget {
         tabBar: CupertinoTabBar(
           items: [
             BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.home), label: 'Home'),
+                icon: Icon(CupertinoIcons.house_fill), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.camera_circle_fill),
-                label: 'AI Drugs Detector'),
+                icon: Icon(CupertinoIcons.camera_viewfinder),
+                label: 'AI Detector'),
             BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.square_stack_3d_up), label: 'Lists'),
             BottomNavigationBarItem(
@@ -46,13 +45,10 @@ class NavigationTab extends StatelessWidget {
           Widget selectedTab;
           switch (index) {
             case 0:
-              selectedTab = Dashboard(imgList: imgList);
-              break;
+              return Dashboard(imgList: imgList);
             case 1:
-              selectedTab = ImageLabel();
-              break;
+              return ImageLabel();
             case 2:
-            case 3:
               selectedTab = IndexedStack(
                 index: index - 2,
                 children: [
@@ -61,9 +57,8 @@ class NavigationTab extends StatelessWidget {
                 ],
               );
               break;
-            case 4:
-              selectedTab = ProfilePage();
-              break;
+            case 3:
+              return ProfilePage();
             default:
               throw Exception('Unknown tab index: $index');
           }
