@@ -1,71 +1,113 @@
 import 'package:flutter/material.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/amlodipine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/batukdahak_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/bodrex_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/dextamine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes1_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes2_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/incidal_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/panadol_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/paramex_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/paratusin_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/ambroxol_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/simvastatin_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/strip_amlodipine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/transplantasi_jantung_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/valsartan_desc.dart';
 
 class DescriptionSection extends StatelessWidget {
+  final String courseTitle;
+
+  DescriptionSection({required this.courseTitle, required String category});
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 20),
-      child: Column(
-        children: [
-          Text(
-            "Penyakit jantung bawaan merupakan berbagai kelainan struktur jantung yang terjadi sebelum kelahiran. Kondisi yang disebut juga penyakit jantung bawaan ini disebabkan oleh kelainan perkembangan jantung janin. Namun, penyakit tersebut tidak termasuk penyakit genetik dengan gejala jantung seperti sindrom Marfan atau kardiomiopati hipertrofik. Beberapa bentuk kelainan jantung bawaan antara lain cacat septum atrium (ASD), cacat septum ventrikel (VSD), cacat septum atrioventrikular (AVSD), dan paten duktus arteriosus (PDA). Berdasarkan pedoman American Heart Association (AHA), kelainan jantung bawaan dapat diklasifikasikan menjadi empat kategori: lesi shunt, lesi obstruktif sisi kiri, lesi sisi kanan, dan lesi gabungan. Selain itu, penyakit jantung bawaan juga dapat digolongkan menjadi penyakit jantung sianotik dan penyakit jantung non-sianotik. Penyakit jantung bawaan sianotik ditandai dengan adanya  pirau  yang memungkinkan darah mengalir dari ventrikel kanan ke ventrikel kiri. Sedangkan penyakit jantung bawaan asianotik ditandai dengan adanya sambungan shunt yang menyebabkan aliran darah dari ventrikel kiri ke ventrikel kanan. Prinsip pengobatan penyakit jantung bawaan adalah perawatan ortodontik. Koreksi dapat dilakukan melalui pembedahan. Oleh karena itu, pasien dengan kelainan jantung bawaan sebaiknya dirujuk ke ahli jantung atau ahli bedah jantung untuk mendapatkan tindakan korektif atau paliatif.",
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black.withOpacity(0.7),
+    String courseDescription = getCourseDescription(courseTitle);
+
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              courseDescription,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black.withOpacity(0.7),
+              ),
+              textAlign: TextAlign.justify,
             ),
-            textAlign: TextAlign.justify,
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Text(
-                "Course Length : ",
-                style: TextStyle(
-                  fontSize: 19,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Icon(
-                Icons.timer,
-                color: Colors.blue,
-              ),
-              SizedBox(width: 5),
-              Text(
-                "15 Hours",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Text(
-                "Rating : ",
-                style: TextStyle(
-                  fontSize: 19,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(width: 5),
-              Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              SizedBox(width: 5),
-              Text(
-                "4.8",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ],
+            SizedBox(height: 20),
+            SizedBox(height: 10),
+            // Row(
+            //   children: [
+            //     Text(
+            //       "Rating : ",
+            //       style: TextStyle(
+            //         fontSize: 19,
+            //         fontWeight: FontWeight.w600,
+            //       ),
+            //     ),
+            //     SizedBox(width: 5),
+            //     Icon(
+            //       Icons.star,
+            //       color: Colors.amber,
+            //     ),
+            //     SizedBox(width: 5),
+            //     Text(
+            //       "4.8",
+            //       style: TextStyle(
+            //         fontSize: 16,
+            //         fontWeight: FontWeight.w500,
+            //       ),
+            //     ),
+            //   ],
+            // ),
+          ],
+        ),
       ),
     );
+  }
+
+  String getCourseDescription(String courseTitle) {
+    switch (courseTitle) {
+      case 'Transplantasi Jantung':
+        return transplantJantungDescription;
+      case 'Batu Ginjal':
+        return batuGinjalDescription;
+      case 'Ambroxol':
+        return ambroxolDescription;
+      case 'Amlodipine':
+        return amlodipineDescription;
+      case 'Bodrex Flu dan Batuk Berdahak':
+        return bodrexdahakDescription;
+      case 'Bodrex Flu dan Batuk':
+        return bodrexDescription;
+      case 'Dextamine':
+        return dextamineDescription;
+      case 'Diabetes Tipe 1':
+        return diabetes1Description;
+      case 'Diabetes Tipe 2':
+        return diabetes2Description;
+      case 'Incidial OD':
+        return incidalDescription;
+      case 'Panadol Biru':
+        return panadolDescription;
+      case 'Paramex':
+        return paramexDescription;
+      case 'Paratusin':
+        return paratusinDescription;
+      case 'Simvastatin':
+        return simvastatinDescription;
+      case 'Strip Amlodipine':
+        return stripAmlodipineDescription;
+      case 'Valsartan':
+        return valsartanDescription;
+      default:
+        return '';
+    }
   }
 }
