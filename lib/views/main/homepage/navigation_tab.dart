@@ -35,7 +35,8 @@ class NavigationTab extends StatelessWidget {
                 icon: Icon(CupertinoIcons.camera_viewfinder),
                 label: 'AI Detector'),
             BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.square_stack_3d_up), label: 'Lists'),
+                icon: Icon(CupertinoIcons.square_stack_3d_up),
+                label: 'Materials'),
             BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.profile_circled), label: 'Profile'),
           ],

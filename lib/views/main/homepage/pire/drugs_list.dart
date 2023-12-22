@@ -21,7 +21,7 @@ class _DrugsListState extends State<DrugsList> {
     'Strip Amlodipine',
     'Valsartan',
   ];
-  
+
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Ambroxol"},
     {"id": 2, "name": "Amlodipine"},
@@ -40,7 +40,6 @@ class _DrugsListState extends State<DrugsList> {
   List<Map<String, dynamic>> _foundUsers = [];
   @override
   initState() {
-
     _foundUsers = _allUsers;
     super.initState();
   }
@@ -56,7 +55,7 @@ class _DrugsListState extends State<DrugsList> {
     } else {
       results = _allUsers
           .where((user) =>
-          user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
       // we use the toLowerCase() method to make it case-insensitive
     }
@@ -64,77 +63,76 @@ class _DrugsListState extends State<DrugsList> {
     setState(() {
       _foundUsers = results;
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CupertinoNavigationBar(
-        middle: Text('List of Drugs',
-        style: TextStyle(fontSize: 20),
+        appBar: CupertinoNavigationBar(
+          middle: Text(
+            'Materials',
+            style: TextStyle(fontSize: 20),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: Padding(
-  padding: const EdgeInsets.all(10),
-  child: Column(
-    children: [
-      const SizedBox(
-        height: 20,
-      ),
-      TextField(
-        onChanged: (value) => _runFilter(value),
-        decoration: const InputDecoration(
-          labelText: 'Search',
-          suffixIcon: Icon(Icons.search),
-        ),
-      ),
-      const SizedBox(
-        height: 20,
-      ),
-      Expanded(
-        child: _foundUsers.isNotEmpty
-            ? ListView.builder(
-                itemCount: _foundUsers.length,
-                itemBuilder: (context, index) => Card(
-                  key: ValueKey(_foundUsers[index]["id"]),
-                  color: Color(0xFF1564c0),
-                  elevation: 4,
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  child: ListTile(
-                    onTap: () {
-                      // Use Navigator.push when ListTile is tapped
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Course(
-                            img: drugsList[index],
-                            category: 'obat',
-                          ),
-                          
-                        ),
-                      );
-                    },
-                    leading: Text(
-                      _foundUsers[index]["id"].toString(),
-                      style: const TextStyle(fontSize: 24, color: Colors.white),
-                    ),
-                    title: Text(
-                      _foundUsers[index]['name'],
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              )
-            : const Text(
-                'No results found',
-                style: TextStyle(fontSize: 24),
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
               ),
-      ),
-    ],
-  ),
-)
-    );
+              TextField(
+                onChanged: (value) => _runFilter(value),
+                decoration: const InputDecoration(
+                  labelText: 'Search',
+                  suffixIcon: Icon(Icons.search),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: _foundUsers.isNotEmpty
+                    ? ListView.builder(
+                        itemCount: _foundUsers.length,
+                        itemBuilder: (context, index) => Card(
+                          key: ValueKey(_foundUsers[index]["id"]),
+                          color: Color(0xFF1564c0),
+                          elevation: 4,
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: ListTile(
+                            onTap: () {
+                              // Use Navigator.push when ListTile is tapped
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Course(
+                                    img: drugsList[index],
+                                    category: 'obat',
+                                  ),
+                                ),
+                              );
+                            },
+                            leading: Text(
+                              _foundUsers[index]["id"].toString(),
+                              style: const TextStyle(
+                                  fontSize: 24, color: Colors.white),
+                            ),
+                            title: Text(
+                              _foundUsers[index]['name'],
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      )
+                    : const Text(
+                        'No results found',
+                        style: TextStyle(fontSize: 24),
+                      ),
+              ),
+            ],
+          ),
+        ));
   }
 }
