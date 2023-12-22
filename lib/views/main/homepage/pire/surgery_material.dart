@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'course.dart';
 
-class heartMaterial extends StatefulWidget {
+class surgeryMaterial extends StatefulWidget {
   @override
-  _heartMaterialState createState() => _heartMaterialState();
+  _surgeryMaterialState createState() => _surgeryMaterialState();
 }
 
-class _heartMaterialState extends State<heartMaterial> {
+class _surgeryMaterialState extends State<surgeryMaterial> {
   List<String> materials = [
     'Aneurysm',
     'Arrythmia',
