@@ -11,15 +11,17 @@ class _heartMaterialState extends State<heartMaterial> {
   List<String> materials = [
     'Aneurysm',
     'Arrythmia',
-    'Infarct Myocard',
+    'CAD',
     'Gagal Jantung',
+    'Infarct Myocard',
   ];
 
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Aneurysm"},
     {"id": 2, "name": "Arrythmia"},
-    {"id": 3, "name": "Infarct Myocard"},
+    {"id": 3, "name": "CAD"},
     {"id": 4, "name": "Gagal Jantung"},
+    {"id": 5, "name": "Infarct Myocard"},
   ];
 
   // This list holds the data for the list view

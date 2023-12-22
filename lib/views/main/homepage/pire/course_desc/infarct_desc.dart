@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String infractDescription =
+const String infarctMyocardDescription =
     'Infark miokard akut atau acute myocardial infarction merupakan kejadian nekrosis miokard yang disebabkan oleh sindrom iskemik tak stabil. Infark miokard akut (IMA) disebabkan kerusakan ireversibel pada otot jantung akibat pasokan oksigen yang kurang. Keberadaan infark miokard dapat mengganggu fungsi sistolik maupun diastolik, dan meningkatkan risiko aritmia pada pasien.';
 void main() {
   runApp(MyApp());
@@ -32,7 +32,7 @@ class DescriptionWidget extends StatelessWidget {
     );
 
     return Text(
-      infractDescription,
+      infarctMyocardDescription,
       style: myTextStyle,
       textAlign: TextAlign.justify,
     );
