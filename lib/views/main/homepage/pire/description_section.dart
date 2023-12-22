@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/amlodipine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/aneurysm_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/arrythmia_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/batukdahak_desc.dart';
@@ -117,6 +118,8 @@ class DescriptionSection extends StatelessWidget {
         return arrythmiaDescription;
       case 'Infract Myocard':
         return infractDescription;
+        case 'Aneurysm':
+        return aneurysmDescription;
       default:
         return '';
     }
