@@ -11,14 +11,14 @@ class _heartMaterialState extends State<heartMaterial> {
   List<String> materials = [
     'Aneurysm',
     'Arrythmia',
-    'Infarct MyoCard',
-    'Gagal Jantung', 
+    'Infarct Myocard',
+    'Gagal Jantung',
   ];
 
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Aneurysm"},
     {"id": 2, "name": "Arrythmia"},
-    {"id": 3, "name": "Infarct MyoCard"},
+    {"id": 3, "name": "Infarct Myocard"},
     {"id": 4, "name": "Gagal Jantung"},
   ];
 
