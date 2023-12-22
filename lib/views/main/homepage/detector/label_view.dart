@@ -99,13 +99,13 @@ class _ImageLabelState extends State<ImageLabel> {
               Text('No image selected'),
             SizedBox(height: 20),
             CupertinoButton(
-              color: CupertinoColors.activeBlue,
+              color: Color(0xFF1564c0),
               onPressed: _pickImageGallery,
               child: Text('Pick Image from Gallery'),
             ),
             SizedBox(height: 20),
             CupertinoButton(
-              color: CupertinoColors.activeBlue,
+              color: Color(0xFF1564c0),
               onPressed: _pickImageCamera,
               child: Text('Capture an Image'),
             ),
