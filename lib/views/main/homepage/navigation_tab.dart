@@ -10,7 +10,7 @@ class NavigationTab extends StatelessWidget {
   final List<String> imgList = [
     'Ambroxol',
     'Amlodipine',
-    'Bodrex Batuk Berdahak',
+    'Bodrex Flu dan Batuk Berdahak',
     'Bodrex Flu dan Batuk',
     'Dextamine',
     'Diabetes Tipe 1',
@@ -20,7 +20,7 @@ class NavigationTab extends StatelessWidget {
     'Panadol Biru',
     'Paramex',
     'Paratusin',
-    'Batu Ginjal',
+    'Pathology',
     'Simvastatin',
     'Strip Amlodipine',
     'Valsartan',
@@ -28,34 +28,46 @@ class NavigationTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.camera_circle_fill),
-              label: 'AI Drugs Detector'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.square_stack_3d_up), label: 'Courses'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.profile_circled), label: 'Profile'),
-        ],
-        activeColor: Color(0xFF1564c0),
-      ),
-      tabBuilder: (context, index) {
-        switch (index) {
-          case 0:
-            return Dashboard();
-          case 1:
-            print("1");
-            return ImageLabel();
-          case 2:
-            print("2");
-            return Course(imgList[index]);
-          case 3:
-            return ProfilePage();
-          default:
-            throw Exception('Unknown tab index: $index');
-        }
-      });
+        tabBar: CupertinoTabBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.camera_circle_fill),
+                label: 'AI Drugs Detector'),
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.square_stack_3d_up), label: 'Lists'),
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.profile_circled), label: 'Profile'),
+          ],
+          activeColor: Color(0xFF1564c0),
+        ),
+        tabBuilder: (context, index) {
+          Widget selectedTab;
+          switch (index) {
+            case 0:
+              selectedTab = Dashboard(imgList: imgList);
+              break;
+            case 1:
+              selectedTab = ImageLabel();
+              break;
+            case 2:
+            case 3:
+              selectedTab = IndexedStack(
+                index: index - 2,
+                children: [
+                  DrugsList(),
+                  DiseaseList(),
+                ],
+              );
+              break;
+            case 4:
+              selectedTab = ProfilePage();
+              break;
+            default:
+              throw Exception('Unknown tab index: $index');
+          }
+          return selectedTab;
+        },
+      );
 }
