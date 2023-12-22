@@ -39,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 30),
+                  SizedBox(height: 15),
                   Container(
                     padding: EdgeInsets.only(top: 5, left: 120),
                     child: Text(
