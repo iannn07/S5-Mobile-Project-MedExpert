@@ -3,8 +3,10 @@ import 'package:med_expert/views/main/homepage/pire/description_section.dart';
 
 class Course extends StatefulWidget {
   final String img;
+  final String category;
 
-  Course(this.img);
+  Course({Key? key, required this.img, required this.category})
+      : super(key: key);
 
   @override
   _CourseState createState() => _CourseState();
@@ -37,7 +39,8 @@ class _CourseState extends State<Course> {
           ),
         ],
       ),
-      body: DescriptionSection(courseTitle: widget.img),
+      body: DescriptionSection(
+          courseTitle: widget.img, category: widget.category),
     );
   }
 }

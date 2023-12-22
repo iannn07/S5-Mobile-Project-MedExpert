@@ -27,7 +27,7 @@ class DescriptionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle myTextStyle = TextStyle(
-      fontSize: 16.0,
+      fontSize: 10.0,
       color: Colors.black.withOpacity(0.7),
     );
 

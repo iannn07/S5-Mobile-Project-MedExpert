@@ -1,35 +1,34 @@
-// description_section.dart
-
 import 'package:flutter/material.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/amlodipine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/batukdahak_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/bodrex_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/dextamine_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes1_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes2_desc.dart';
-import 'package:med_expert/views/main/homepage/pire/course_desc/heart_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/incidal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/panadol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paramex_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paratusin_desc.dart';
-import 'package:med_expert/views/main/homepage/pire/course_desc/pathology_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/ambroxol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/simvastatin_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/strip_amlodipine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/transplantasi_jantung_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/valsartan_desc.dart';
 
 class DescriptionSection extends StatelessWidget {
   final String courseTitle;
 
-  DescriptionSection({required this.courseTitle});
+  DescriptionSection({required this.courseTitle, required String category});
 
   @override
   Widget build(BuildContext context) {
     String courseDescription = getCourseDescription(courseTitle);
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,29 +41,6 @@ class DescriptionSection extends StatelessWidget {
               textAlign: TextAlign.justify,
             ),
             SizedBox(height: 20),
-            Row(
-              children: [
-                Text(
-                  "Course Length : ",
-                  style: TextStyle(
-                    fontSize: 19,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  Icons.timer,
-                  color: Colors.blue,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  "15 Hours",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
             SizedBox(height: 10),
             Row(
               children: [
@@ -98,10 +74,10 @@ class DescriptionSection extends StatelessWidget {
 
   String getCourseDescription(String courseTitle) {
     switch (courseTitle) {
-      case 'Heart':
-        return heartDescription;
-      case 'Pathology':
-        return pathologyDescription;
+      case 'Transplantasi Jantung':
+        return transplantJantungDescription;
+      case 'Batu Ginjal':
+        return batuGinjalDescription;
       case 'Ambroxol':
         return ambroxolDescription;
       case 'Amlodipine':
