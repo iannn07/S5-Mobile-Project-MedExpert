@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Diabetes Melitus Tipe 2'),
+          title: Text('Gagal Jantung'),
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
