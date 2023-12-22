@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:med_expert/views/main/homepage/pire/anatomy_material.dart';
 import 'package:med_expert/views/main/homepage/pire/drugs_material.dart';
+import 'package:med_expert/views/main/homepage/pire/heart_material.dart';
 import 'package:med_expert/views/main/homepage/pire/pathology_material.dart';
+import 'package:med_expert/views/main/homepage/pire/radiology_material.dart';
+import 'package:med_expert/views/main/homepage/pire/surgery_material.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key, required List<String> imgList});
@@ -52,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 5, left: 87.5),
+                    padding: EdgeInsets.only(top: 5, left: 87.5, bottom: 20),
                     child: Text(
                       "Welcome to MedExpert",
                       style: TextStyle(
@@ -111,14 +115,14 @@ class _DashboardState extends State<Dashboard> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ,
+                                    builder: (context) => pathologyMaterial(),
                                   ));
                               break;
                             case 2:
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ,
+                                    builder: (context) => surgeryMaterial(),
                                   ));
                               break;
                             case 3:
@@ -132,14 +136,14 @@ class _DashboardState extends State<Dashboard> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ,
+                                    builder: (context) => radiologyMaterial(),
                                   ));
                               break;
                             case 5:
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ,
+                                    builder: (context) => anatomyMaterial(),
                                   ));
                               break;
                             default:

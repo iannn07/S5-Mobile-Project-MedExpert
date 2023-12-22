@@ -11,7 +11,7 @@ class _drugsMaterialsState extends State<drugsMaterials> {
   List<String> materials = [
     'Ambroxol',
     'Amlodipine',
-    'Bodrex Flu dan Batuk Berdahak',
+    'Bodrex Flu dan Batuk Berdahak', 
     'Bodrex Flu dan Batuk',
     'Dextamine',
     'Panadol Biru',

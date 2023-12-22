@@ -12,7 +12,7 @@ class _heartMaterialState extends State<heartMaterial> {
     'Aneurysm',
     'Arrythmia',
     'Infarct MyoCard',
-    'Gagal Jantung',
+    'Gagal Jantung', 
   ];
 
   final List<Map<String, dynamic>> _allUsers = [
