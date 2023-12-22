@@ -12,6 +12,7 @@ import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes2_desc.d
 import 'package:med_expert/views/main/homepage/pire/course_desc/gagaljantung_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/gagaljantungakut_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/incidal_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/infarct_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/panadol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paramex_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paratusin_desc.dart';
@@ -120,6 +121,8 @@ class DescriptionSection extends StatelessWidget {
         return cadDescription;  
       case 'Aneurysm':
         return aneurysmDescription;
+      case 'Infarct Myocard':
+      return infarctMyocardDescription;
       default:
         return '';
     }
