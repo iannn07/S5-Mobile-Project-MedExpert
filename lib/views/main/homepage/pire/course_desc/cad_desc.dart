@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-const String infractDescription =
-    'Infark miokard akut atau acute myocardial infarction merupakan kejadian nekrosis miokard yang disebabkan oleh sindrom iskemik tak stabil. Infark miokard akut (IMA) disebabkan kerusakan ireversibel pada otot jantung akibat pasokan oksigen yang kurang. Keberadaan infark miokard dapat mengganggu fungsi sistolik maupun diastolik, dan meningkatkan risiko aritmia pada pasien.';
+const String cadDescription =
+    'Tujuan penatalaksanaan pada sindrom koroner akut adalah mencegah nekrosis sel-sel miokardium dan mengupayakan terjadinya reperfusi ke jaringan miokardium. Pada pasien STEMI, reperfusi secepatnya dengan percutaneous coronary intervention (PCI) atau kateterisasi jantung adalah terapi lini pertama, bila dapat dilakukan dalam 120 menit dari onset gejala. Intervensi ini dapat dilakukan di fasilitas pelayanan tersier. Akan tetapi, apabila PCI tidak dapat dilakukan atau tertunda, maka fibrinolisis harus dilakukan.';
 void main() {
   runApp(MyApp());
 }
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Infarct Myocard'),
+          title: Text('CAD'),
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
@@ -32,7 +32,7 @@ class DescriptionWidget extends StatelessWidget {
     );
 
     return Text(
-      infractDescription,
+      cadDescription,
       style: myTextStyle,
       textAlign: TextAlign.justify,
     );
