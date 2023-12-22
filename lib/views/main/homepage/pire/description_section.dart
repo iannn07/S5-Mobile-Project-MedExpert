@@ -118,7 +118,7 @@ class DescriptionSection extends StatelessWidget {
         return arrythmiaDescription;
       case 'Infract Myocard':
         return infractDescription;
-        case 'Aneurysm':
+      case 'Aneurysm':
         return aneurysmDescription;
       default:
         return '';
