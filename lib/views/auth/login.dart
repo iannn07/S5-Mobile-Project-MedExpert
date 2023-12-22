@@ -127,7 +127,7 @@ class LoginPage extends StatelessWidget {
                                     email: _emailController.text,
                                     password: _passwordController.text);
                                 if (message!.contains('Success')) {
-                                  context.push('/home');
+                                  context.pushReplacement('/home');
                                 }
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(content: Text(message)));

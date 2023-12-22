@@ -40,8 +40,8 @@ class _DashboardState extends State<Dashboard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 30),
-                  Padding(
-                    padding: EdgeInsets.only(top: 5, left: 110),
+                  Container(
+                    padding: EdgeInsets.only(top: 5, left: 120),
                     child: Text(
                       "Hi, " + FirebaseAuth.instance.currentUser!.displayName!,
                       style: TextStyle(
@@ -54,19 +54,15 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 5, left: 60),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Welcome To Our Application, Enjoy It!",
-                        hintStyle: TextStyle(
-                          color: Colors.white.withOpacity(0.5),
-                          fontSize: 15,
-                        ),
-                        // prefixIcon: Icon(
-                        //   Icons.people,
-                        //   size: 25,
-                        // ),
+                    padding: EdgeInsets.only(top: 5, left: 87.5),
+                    child: Text(
+                      "Welcome to MedExpert",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1,
+                        wordSpacing: 2,
+                        color: Colors.white,
                       ),
                     ),
                   ),
