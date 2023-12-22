@@ -2,38 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'course.dart';
 
-class Materials extends StatefulWidget {
+class heartMaterial extends StatefulWidget {
   @override
-  _MaterialsState createState() => _MaterialsState();
+  _heartMaterialState createState() => _heartMaterialState();
 }
 
-class _MaterialsState extends State<Materials> {
+class _heartMaterialState extends State<heartMaterial> {
   List<String> materials = [
-    'Ambroxol',
-    'Amlodipine',
-    'Bodrex Flu dan Batuk Berdahak',
-    'Bodrex Flu dan Batuk',
-    'Dextamine',
-    'Panadol Biru',
-    'Paramex',
-    'Paratusin',
-    'Simvastatin',
-    'Strip Amlodipine',
-    'Valsartan',
+    'Aneurysm',
+    'Arrythmia',
+    'Infarct MyoCard',
+    'Gagal Jantung',
   ];
 
   final List<Map<String, dynamic>> _allUsers = [
-    {"id": 1, "name": "Ambroxol"},
-    {"id": 2, "name": "Amlodipine"},
-    {"id": 3, "name": "Bodrex Flu dan Batuk Berdahak"},
-    {"id": 4, "name": "Bodrex Flu dan Batuk"},
-    {"id": 5, "name": "Dextamine"},
-    {"id": 6, "name": "Panadol"},
-    {"id": 7, "name": "Paramex"},
-    {"id": 8, "name": "Paratusin"},
-    {"id": 9, "name": "Simvastatin"},
-    {"id": 10, "name": "Strip Amlodipine"},
-    {"id": 11, "name": "Valsartan"},
+    {"id": 1, "name": "Aneurysm"},
+    {"id": 2, "name": "Arrythmia"},
+    {"id": 3, "name": "Infarct MyoCard"},
+    {"id": 4, "name": "Gagal Jantung"},
   ];
 
   // This list holds the data for the list view
@@ -70,7 +56,7 @@ class _MaterialsState extends State<Materials> {
     return Scaffold(
         appBar: CupertinoNavigationBar(
           middle: Text(
-            'Drug',
+            'Heart Disease',
             style: TextStyle(fontSize: 20),
           ),
           automaticallyImplyLeading: false,
@@ -109,7 +95,7 @@ class _MaterialsState extends State<Materials> {
                                 MaterialPageRoute(
                                   builder: (context) => Course(
                                     img: materials[index],
-                                    category: 'obat',
+                                    category: 'Heart Disease',
                                   ),
                                 ),
                               );

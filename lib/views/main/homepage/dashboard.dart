@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:med_expert/views/main/homepage/pire/drug_material.dart';
+import 'package:med_expert/views/main/homepage/pire/drugs_material.dart';
 import 'package:med_expert/views/main/homepage/pire/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -16,6 +18,10 @@ class _DashboardState extends State<Dashboard> {
     'Drugs',
     'Radiology',
     'Anatomy',
+  ];
+  List<String> classes = [
+    'drugsMaterials',
+
   ];
 
   @override
@@ -101,7 +107,7 @@ class _DashboardState extends State<Dashboard> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Materials(),
+                                builder: (context) => drugsMaterials(),
                               ));
                         },
                         child: Container(
