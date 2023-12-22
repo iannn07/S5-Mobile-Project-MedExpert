@@ -23,6 +23,10 @@ class NavigationTab extends StatelessWidget {
     'Simvastatin',
     'Strip Amlodipine',
     'Valsartan',
+    'Gagal Jantung Akut',
+    'Gagal Jantung',
+    'Arrythmia',
+    'Infract Myocard',
   ];
 
   @override
