@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'course.dart';
 
-class DrugsList extends StatefulWidget {
+class drugsMaterials extends StatefulWidget {
   @override
-  _DrugsListState createState() => _DrugsListState();
+  _drugsMaterialsState createState() => _drugsMaterialsState();
 }
 
-class _DrugsListState extends State<DrugsList> {
-  List<String> drugsList = [
+class _drugsMaterialsState extends State<drugsMaterials> {
+  List<String> materials = [
     'Ambroxol',
     'Amlodipine',
-    'Bodrex Flu dan Batuk Berdahak',
+    'Bodrex Flu dan Batuk Berdahak', 
     'Bodrex Flu dan Batuk',
     'Dextamine',
     'Panadol Biru',
@@ -70,7 +70,7 @@ class _DrugsListState extends State<DrugsList> {
     return Scaffold(
         appBar: CupertinoNavigationBar(
           middle: Text(
-            'Materials',
+            'Drug',
             style: TextStyle(fontSize: 20),
           ),
           automaticallyImplyLeading: false,
@@ -82,13 +82,13 @@ class _DrugsListState extends State<DrugsList> {
               const SizedBox(
                 height: 20,
               ),
-              TextField(
-                onChanged: (value) => _runFilter(value),
-                decoration: const InputDecoration(
-                  labelText: 'Search',
-                  suffixIcon: Icon(Icons.search),
-                ),
-              ),
+              // TextField(
+              //   onChanged: (value) => _runFilter(value),
+              //   decoration: const InputDecoration(
+              //     labelText: 'Search',
+              //     suffixIcon: Icon(Icons.search),
+              //   ),
+              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -108,7 +108,7 @@ class _DrugsListState extends State<DrugsList> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Course(
-                                    img: drugsList[index],
+                                    img: materials[index],
                                     category: 'obat',
                                   ),
                                 ),

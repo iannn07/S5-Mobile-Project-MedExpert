@@ -12,6 +12,10 @@ class _DiseaseListState extends State<DiseaseList> {
     'Diabetes Tipe 2',
     'Transplantasi Jantung',
     'Batu Ginjal',
+    'Gagal Jantung Akut',
+    'Gagal Jantung',
+    'Arrythmia',
+    'Infract Myocard',
   ];
 
   @override

@@ -2,38 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'course.dart';
 
-class DrugsList extends StatefulWidget {
+class heartMaterial extends StatefulWidget {
   @override
-  _DrugsListState createState() => _DrugsListState();
+  _heartMaterialState createState() => _heartMaterialState();
 }
 
-class _DrugsListState extends State<DrugsList> {
-  List<String> drugsList = [
-    'Ambroxol',
-    'Amlodipine',
-    'Bodrex Flu dan Batuk Berdahak',
-    'Bodrex Flu dan Batuk',
-    'Dextamine',
-    'Panadol Biru',
-    'Paramex',
-    'Paratusin',
-    'Simvastatin',
-    'Strip Amlodipine',
-    'Valsartan',
+class _heartMaterialState extends State<heartMaterial> {
+  List<String> materials = [
+    'Aneurysm',
+    'Arrythmia',
+    'CAD',
+    'Gagal Jantung',
+    'Infarct Myocard',
   ];
 
   final List<Map<String, dynamic>> _allUsers = [
-    {"id": 1, "name": "Ambroxol"},
-    {"id": 2, "name": "Amlodipine"},
-    {"id": 3, "name": "Bodrex Flu dan Batuk Berdahak"},
-    {"id": 4, "name": "Bodrex Flu dan Batuk"},
-    {"id": 5, "name": "Dextamine"},
-    {"id": 6, "name": "Panadol"},
-    {"id": 7, "name": "Paramex"},
-    {"id": 8, "name": "Paratusin"},
-    {"id": 9, "name": "Simvastatin"},
-    {"id": 10, "name": "Strip Amlodipine"},
-    {"id": 11, "name": "Valsartan"},
+    {"id": 1, "name": "Aneurysm"},
+    {"id": 2, "name": "Arrythmia"},
+    {"id": 3, "name": "CAD"},
+    {"id": 4, "name": "Gagal Jantung"},
+    {"id": 5, "name": "Infarct Myocard"},
   ];
 
   // This list holds the data for the list view
@@ -70,7 +58,7 @@ class _DrugsListState extends State<DrugsList> {
     return Scaffold(
         appBar: CupertinoNavigationBar(
           middle: Text(
-            'Materials',
+            'Heart Disease',
             style: TextStyle(fontSize: 20),
           ),
           automaticallyImplyLeading: false,
@@ -82,13 +70,13 @@ class _DrugsListState extends State<DrugsList> {
               const SizedBox(
                 height: 20,
               ),
-              TextField(
-                onChanged: (value) => _runFilter(value),
-                decoration: const InputDecoration(
-                  labelText: 'Search',
-                  suffixIcon: Icon(Icons.search),
-                ),
-              ),
+              // TextField(
+              //   onChanged: (value) => _runFilter(value),
+              //   decoration: const InputDecoration(
+              //     labelText: 'Search',
+              //     suffixIcon: Icon(Icons.search),
+              //   ),
+              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -108,8 +96,8 @@ class _DrugsListState extends State<DrugsList> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Course(
-                                    img: drugsList[index],
-                                    category: 'obat',
+                                    img: materials[index],
+                                    category: 'Heart Disease',
                                   ),
                                 ),
                               );

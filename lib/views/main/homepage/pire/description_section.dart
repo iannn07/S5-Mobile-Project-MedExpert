@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/amlodipine_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/aneurysm_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/arrythmia_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/batukdahak_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/bodrex_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/cad_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/dextamine_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes1_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/diabetes2_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/gagaljantung_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/gagaljantungakut_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/incidal_desc.dart';
+import 'package:med_expert/views/main/homepage/pire/course_desc/infarct_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/panadol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paramex_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/paratusin_desc.dart';
-import 'package:med_expert/views/main/homepage/pire/course_desc/batuginjal_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/ambroxol_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/simvastatin_desc.dart';
 import 'package:med_expert/views/main/homepage/pire/course_desc/strip_amlodipine_desc.dart';
@@ -42,30 +47,30 @@ class DescriptionSection extends StatelessWidget {
             ),
             SizedBox(height: 20),
             SizedBox(height: 10),
-            Row(
-              children: [
-                Text(
-                  "Rating : ",
-                  style: TextStyle(
-                    fontSize: 19,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(width: 5),
-                Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  "4.8",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Text(
+            //       "Rating : ",
+            //       style: TextStyle(
+            //         fontSize: 19,
+            //         fontWeight: FontWeight.w600,
+            //       ),
+            //     ),
+            //     SizedBox(width: 5),
+            //     Icon(
+            //       Icons.star,
+            //       color: Colors.amber,
+            //     ),
+            //     SizedBox(width: 5),
+            //     Text(
+            //       "4.8",
+            //       style: TextStyle(
+            //         fontSize: 16,
+            //         fontWeight: FontWeight.w500,
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),
@@ -106,6 +111,18 @@ class DescriptionSection extends StatelessWidget {
         return stripAmlodipineDescription;
       case 'Valsartan':
         return valsartanDescription;
+      case 'Gagal Jantung Akut':
+        return gagalJantung02Description;
+      case 'Gagal Jantung':
+        return gagaljantung01Description;
+      case 'Arrythmia':
+        return arrythmiaDescription;
+      case 'CAD':
+        return cadDescription;
+      case 'Aneurysm':
+        return aneurysmDescription;
+      case 'Infarct Myocard':
+        return infarctMyocardDescription;
       default:
         return '';
     }
